@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Darul Quran - Pendaftaran Santri Baru</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap">
+<style>
+:root{--bg:#f6f1e4;--surface:#fff;--text:#1b2a26;--muted:#4a5a55;--h:#0f3d33;--btn:#0f3d33;--btn-text:#fff;--accent:#e0b95c;--gold:#8a6410;--border:#e3dcc8;--hero:#0f3d33;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1a16;--surface:#12261f;--text:#efe9d8;--muted:#b8c2bb;--h:#e0b95c;--btn:#e0b95c;--btn-text:#0f3d33;--gold:#e0b95c;--border:#24413a;--hero:#0a2a23}}
+:root[data-theme="dark"]{--bg:#0c1a16;--surface:#12261f;--text:#efe9d8;--muted:#b8c2bb;--h:#e0b95c;--btn:#e0b95c;--btn-text:#0f3d33;--gold:#e0b95c;--border:#24413a;--hero:#0a2a23}
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:18px/1.65 'Inter',Arial,sans-serif}
+h1,h2,h3{font-family:'Source Serif 4',Georgia,serif;color:var(--h);line-height:1.2;margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--border)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{font:700 24px 'Source Serif 4',Georgia,serif;color:var(--h);text-decoration:none}
+nav{display:flex;align-items:center;gap:22px}
+nav a{color:var(--text);text-decoration:none;font-weight:500;font-size:16px}
+.btn{display:inline-block;background:var(--btn);color:var(--btn-text)!important;padding:14px 26px;border-radius:12px;font-weight:600;font-size:17px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.btn:hover{opacity:.9}
+.btn.ghost{background:transparent;color:#f6f1e4!important;border:2px solid #e0b95c}
+@media(max-width:760px){nav a:not(.btn){display:none}}
+.hero{background:var(--hero);color:#f6f1e4}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:end;padding-top:64px}
+.hero h1{color:#f6f1e4;font-size:clamp(40px,7vw,72px)}
+.tag{color:#e0b95c;font-weight:600;letter-spacing:2px;font-size:14px;margin:0 0 12px}
+.hero p.lead{font-size:20px;color:#e8e2d0;max-width:520px;margin:18px 0 28px}
+.cta{display:flex;gap:14px;flex-wrap:wrap;padding-bottom:64px}
+.hero svg{width:100%;height:auto;display:block}
+@media(max-width:760px){.hero .wrap{grid-template-columns:1fr}.cta{padding-bottom:28px}}
+section{padding:72px 0}
+section h2{font-size:clamp(30px,5vw,42px);margin-bottom:12px}
+.sub{color:var(--muted);max-width:620px;margin:0 0 32px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:26px}
+.card h3{font-size:22px;margin-bottom:8px}
+.card p,.card li{color:var(--muted);margin:0}
+.card ul{margin:0;padding-left:20px}
+.num{font:700 44px 'Source Serif 4',Georgia,serif;color:var(--gold);line-height:1}
+.alt{background:var(--surface);border-block:1px solid var(--border)}
+.alt .card{background:var(--bg)}
+form{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.f{display:flex;flex-direction:column;gap:6px}
+.f.full{grid-column:1/-1}
+label{font-weight:600;font-size:16px}
+input,select,textarea{font:inherit;padding:13px 14px;border-radius:10px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);width:100%}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--accent);border-color:transparent}
+@media(max-width:640px){form{grid-template-columns:1fr}}
+#hasil{display:none;margin-top:20px}
+#hasil textarea{height:210px}
+footer{background:var(--hero);color:#e8e2d0;padding:40px 0;font-size:16px}
+footer strong{color:#e0b95c}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+<a class="logo" href="index.html">🕌 Darul Quran</a>
+<nav><a href="#program">Program</a><a href="#syarat">Syarat</a><a href="#alur">Alur</a><a href="#biaya">Biaya</a><a href="info.html">Info</a><a href="dashboard.html">Dashboard</a><a class="btn" href="#daftar">Daftar</a></nav>
+</div></header>
+
+<div class="hero"><div class="wrap">
+<div>
+<p class="tag">PENERIMAAN SANTRI BARU [2026/2027]</p>
+<h1>Darul Quran</h1>
+<p class="lead">Pendidikan Al-Qur'an yang menumbuhkan ilmu, akhlak, dan prestasi untuk putra-putri Anda.</p>
+<div class="cta"><a class="btn" href="#daftar">Daftar Sekarang</a><a class="btn ghost" href="#syarat">Lihat Syarat</a></div>
+</div>
+<!-- Ganti SVG ini dengan foto asli: <img src="foto-pondok.jpg" alt="Pondok Darul Quran" style="width:100%;border-radius:16px"> -->
+<svg role="img" aria-label="Ilustrasi pondok pesantren dengan masjid berkubah emas" viewBox="0 0 700 560"><circle cx="590" cy="90" r="42" fill="#e0b95c"/><circle cx="610" cy="78" r="38" fill="#0f3d33"/><circle cx="470" cy="60" r="4" fill="#e8e2d0"/><circle cx="660" cy="170" r="4" fill="#e8e2d0"/><circle cx="130" cy="90" r="3" fill="#e8e2d0"/><rect y="470" width="700" height="90" fill="#174f42"/><rect x="20" y="350" width="170" height="120" fill="#1d5e4f"/><polygon points="10,350 105,300 200,350" fill="#174f42"/><rect x="45" y="385" width="26" height="36" fill="#e0b95c"/><rect x="92" y="385" width="26" height="36" fill="#e0b95c"/><rect x="139" y="385" width="26" height="36" fill="#e0b95c"/><rect x="520" y="380" width="160" height="90" fill="#1d5e4f"/><polygon points="510,380 600,336 690,380" fill="#174f42"/><rect x="545" y="410" width="24" height="32" fill="#e0b95c"/><rect x="590" y="410" width="24" height="32" fill="#e0b95c"/><rect x="635" y="410" width="24" height="32" fill="#e0b95c"/><rect x="228" y="190" width="26" height="280" fill="#f6f1e4"/><polygon points="222,190 241,150 260,190" fill="#e0b95c"/><rect x="446" y="190" width="26" height="280" fill="#f6f1e4"/><polygon points="440,190 459,150 478,190" fill="#e0b95c"/><rect x="260" y="330" width="180" height="140" fill="#f6f1e4"/><path d="M255 330 A95 95 0 0 1 445 330 Z" fill="#e0b95c"/><line x1="350" y1="235" x2="350" y2="205" stroke="#e0b95c" stroke-width="5"/><circle cx="350" cy="198" r="9" fill="#e0b95c"/><path d="M322 470 L322 400 A28 28 0 0 1 378 400 L378 470 Z" fill="#0f3d33"/><path d="M276 440 L276 385 A14 14 0 0 1 304 385 L304 440 Z" fill="#1d5e4f"/><path d="M396 440 L396 385 A14 14 0 0 1 424 385 L424 440 Z" fill="#1d5e4f"/><rect x="214" y="470" width="272" height="10" fill="#e0b95c"/><rect x="212" y="420" width="6" height="50" fill="#174f42"/><circle cx="215" cy="410" r="34" fill="#2a7a62"/><rect x="490" y="430" width="6" height="40" fill="#174f42"/><circle cx="493" cy="420" r="28" fill="#2a7a62"/><rect x="150" y="440" width="6" height="30" fill="#174f42"/><circle cx="153" cy="432" r="22" fill="#2a7a62"/><path d="M0 540 Q175 500 350 530 T700 520 L700 560 L0 560 Z" fill="#0f3d33"/></svg>
+</div></div>
+
+<section id="program"><div class="wrap">
+<h2>Program unggulan</h2><p class="sub">Tiga hal yang kami jaga setiap hari.</p>
+<div class="grid">
+<div class="card"><h3>Tahfidz Al-Qur'an</h3><p>Hafalan dibimbing guru berpengalaman dengan target yang jelas.</p></div>
+<div class="card"><h3>Ilmu Umum</h3><p>Kurikulum sekolah yang seimbang agar siap melanjutkan pendidikan.</p></div>
+<div class="card"><h3>Akhlak dan Adab</h3><p>Pembiasaan ibadah dan adab dalam kehidupan asrama.</p></div>
+</div></div></section>
+
+<section id="syarat" class="alt"><div class="wrap">
+<h2>Syarat pendaftaran</h2><p class="sub">Siapkan berkas berikut sebelum mendaftar.</p>
+<div class="grid">
+<div class="card"><h3>Data calon santri</h3><ul><li>Fotokopi akta kelahiran</li><li>Fotokopi kartu keluarga</li><li>Pas foto 3x4 [2 lembar]</li></ul></div>
+<div class="card"><h3>Data pendidikan</h3><ul><li>Rapor terakhir</li><li>Ijazah atau surat keterangan lulus</li><li>Surat pindah [jika ada]</li></ul></div>
+</div></div></section>
+
+<section id="alur"><div class="wrap">
+<h2>Alur pendaftaran</h2><p class="sub">Empat langkah mudah.</p>
+<div class="grid">
+<div class="card"><div class="num">1</div><h3>Isi formulir</h3><p>Lengkapi data di bawah.</p></div>
+<div class="card"><div class="num">2</div><h3>Kirim berkas</h3><p>Serahkan dokumen persyaratan.</p></div>
+<div class="card"><div class="num">3</div><h3>Ikut seleksi</h3><p>Tes baca Al-Qur'an dan wawancara.</p></div>
+<div class="card"><div class="num">4</div><h3>Daftar ulang</h3><p>Lihat pengumuman, selesaikan administrasi.</p></div>
+</div></div></section>
+
+<section id="biaya" class="alt"><div class="wrap">
+<h2>Jadwal dan biaya</h2><p class="sub">Isi sesuai informasi resmi sekolah.</p>
+<div class="grid">
+<div class="card"><h3>Jadwal</h3><ul><li>Pendaftaran: [tanggal] - [tanggal]</li><li>Seleksi: [tanggal]</li><li>Pengumuman: [tanggal]</li></ul></div>
+<div class="card"><h3>Biaya</h3><ul><li>Pendaftaran: Rp [__]</li><li>Uang pangkal: Rp [__]</li><li>SPP bulanan: Rp [__]</li></ul></div>
+</div></div></section>
+
+<section id="daftar"><div class="wrap">
+<h2>Formulir pendaftaran</h2><p class="sub">Isi data calon santri. Setelah dikirim, data siap Anda salin atau kirim lewat WhatsApp ke panitia.</p>
+<form id="frm" novalidate>
+<div class="f"><label for="nama">Nama lengkap calon santri</label><input id="nama" required autocomplete="name"></div>
+<div class="f"><label for="jk">Jenis kelamin</label><select id="jk" required><option value="">Pilih</option><option>Laki-laki</option><option>Perempuan</option></select></div>
+<div class="f"><label for="ttl">Tempat dan tanggal lahir</label><input id="ttl" required placeholder="Contoh: Bukittinggi, 12 Mei 2012"></div>
+<div class="f"><label for="jenjang">Jenjang yang dipilih</label><select id="jenjang" required><option value="">Pilih</option><option>SMP / MTs</option><option>SMA / MA</option></select></div>
+<div class="f"><label for="asal">Asal sekolah</label><input id="asal" required></div>
+<div class="f"><label for="wali">Nama orang tua / wali</label><input id="wali" required></div>
+<div class="f"><label for="hp">No. WhatsApp wali</label><input id="hp" type="tel" inputmode="tel" required placeholder="08xxxxxxxxxx"></div>
+<div class="f"><label for="alamat">Alamat</label><input id="alamat" required autocomplete="street-address"></div>
+<div class="f full"><button class="btn" type="submit">Kirim Pendaftaran</button><small id="err" role="alert" style="color:#b3261e;font-weight:600"></small></div>
+</form>
+<div id="hasil" class="card"><h3>Data pendaftaran siap dikirim</h3><p style="margin:6px 0 14px">Salin teks ini lalu kirim ke panitia, atau tekan tombol WhatsApp.</p><textarea id="teks" readonly></textarea><div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px"><button class="btn" id="salin" type="button">Salin Data</button><a class="btn" id="wa" href="#" target="_blank" rel="noopener">Kirim via WhatsApp</a></div></div>
+</div></section>
+
+<footer><div class="wrap">
+<strong>Darul Quran</strong><br>Alamat: [alamat sekolah] · WhatsApp: [nomor panitia] · Email: [email]
+</div></footer>
+
+<script>
+// Ganti dengan nomor panitia, format internasional tanpa + (contoh: 6281234567890)
+var WA_NUMBER = "";
+var ids = ["nama","jk","ttl","jenjang","asal","wali","hp","alamat"];
+var lbl = {nama:"Nama",jk:"Jenis kelamin",ttl:"TTL",jenjang:"Jenjang",asal:"Asal sekolah",wali:"Orang tua/wali",hp:"WhatsApp wali",alamat:"Alamat"};
+document.getElementById("frm").addEventListener("submit", function(e){
+  e.preventDefault();
+  var err = document.getElementById("err"), lines = ["Pendaftaran Santri Baru - Darul Quran"], ok = true;
+  ids.forEach(function(id){
+    var el = document.getElementById(id), v = el.value.trim();
+    if(!v){ ok = false; el.style.borderColor = "#b3261e"; } else { el.style.borderColor = ""; lines.push(lbl[id] + ": " + v); }
+  });
+  if(!ok){ err.textContent = "Mohon lengkapi semua kolom yang kosong."; return; }
+  err.textContent = "";
+  var t = lines.join("\n");
+  document.getElementById("teks").value = t;
+  var wa = document.getElementById("wa");
+  if(WA_NUMBER){ wa.href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(t); } else { wa.style.display = "none"; }
+  var h = document.getElementById("hasil"); h.style.display = "block"; h.scrollIntoView({behavior:"smooth", block:"center"});
+});
+document.getElementById("salin").addEventListener("click", function(){
+  var ta = document.getElementById("teks"); ta.select();
+  try{ navigator.clipboard.writeText(ta.value); }catch(e){ document.execCommand("copy"); }
+  this.textContent = "Tersalin!";
+});
+</script>
+</body>
+</html>

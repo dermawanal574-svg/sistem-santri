@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pendaftaran Santri Baru - Darul Quran</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap bar">
+<a class="logo" href="index.html">🕌 Darul Quran</a>
+<nav><a href="index.html">Beranda</a><a href="info.html">Info &amp; Galeri</a><a href="dashboard.html">Dashboard</a><button class="theme-toggle" id="th" type="button" aria-label="Ganti tema">☾</button><a class="btn" href="#daftar">Daftar</a></nav>
+</div></header>
+
+<div class="mini"><div class="wrap">
+<p class="tag">PENERIMAAN SANTRI BARU [2026/2027]</p>
+<h1>Formulir Pendaftaran</h1>
+<p class="sub">Isi data calon santri. Setelah dikirim, data tersimpan di dashboard panitia dan siap dikirim lewat WhatsApp.</p>
+</div></div>
+
+<main>
+<section id="daftar"><div class="wrap">
+<h2>Syarat singkat</h2><p class="sub">Siapkan juga: fotokopi akta kelahiran, kartu keluarga, rapor terakhir, dan pas foto 3x4.</p>
+<form id="frm" novalidate>
+<div class="f"><label for="nama">Nama lengkap calon santri</label><input id="nama" required autocomplete="name"></div>
+<div class="f"><label for="jk">Jenis kelamin</label><select id="jk" required><option value="">Pilih</option><option>Laki-laki</option><option>Perempuan</option></select></div>
+<div class="f"><label for="ttl">Tempat dan tanggal lahir</label><input id="ttl" required placeholder="Contoh: Bukittinggi, 12 Mei 2012"></div>
+<div class="f"><label for="jenjang">Jenjang yang dipilih</label><select id="jenjang" required><option value="">Pilih</option><option>SMP / MTs</option><option>SMA / MA</option></select></div>
+<div class="f"><label for="asal">Asal sekolah</label><input id="asal" required></div>
+<div class="f"><label for="wali">Nama orang tua / wali</label><input id="wali" required></div>
+<div class="f"><label for="hp">No. WhatsApp wali</label><input id="hp" type="tel" inputmode="tel" required placeholder="08xxxxxxxxxx"></div>
+<div class="f"><label for="alamat">Alamat</label><input id="alamat" required autocomplete="street-address"></div>
+<div class="f"><label for="foto">Pas foto (opsional)</label><input id="foto" type="file" accept="image/*"><img id="prev" alt="Pratinjau pas foto"></div>
+<div class="f full check"><input id="setuju" type="checkbox" required style="width:auto"><label for="setuju" style="font-weight:500">Saya menyatakan data di atas benar dan bersedia mengikuti seleksi.</label></div>
+<div class="f full"><button class="btn" type="submit">Kirim Pendaftaran</button><small id="err" class="err" role="alert"></small></div>
+</form>
+<div id="hasil" class="card"><h3>Data pendaftaran siap dikirim</h3><p style="margin:6px 0 14px;color:var(--muted)">Data sudah tersimpan di dashboard panitia. Salin teks ini lalu kirim ke panitia, atau tekan tombol WhatsApp.</p><textarea id="teks" readonly></textarea><div class="row"><button class="btn" id="salin" type="button">Salin Data</button><a class="btn" id="wa" href="#" target="_blank" rel="noopener">Kirim via WhatsApp</a><a class="btn" style="background:transparent;color:var(--h)!important;border:2px solid var(--h)" href="dashboard.html">Lihat Dashboard</a></div></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+<strong>Darul Quran</strong><br>Alamat: [alamat sekolah] · WhatsApp: [nomor panitia] · Email: [email]<br>
+<a href="index.html">Beranda</a> · <a href="info.html">Info &amp; Galeri</a> · <a href="daftar.html">Pendaftaran</a> · <a href="dashboard.html">Dashboard</a>
+</div></footer>
+
+<script>
+var WA_NUMBER = "";
+var K = "dq_pendaftar";
+var ids = ["nama","jk","ttl","jenjang","asal","wali","hp","alamat"];
+var lbl = {nama:"Nama",jk:"Jenis kelamin",ttl:"TTL",jenjang:"Jenjang",asal:"Asal sekolah",wali:"Orang tua/wali",hp:"WhatsApp wali",alamat:"Alamat"};
+function load(){try{return JSON.parse(localStorage.getItem(K))||[]}catch(e){return[]}}
+function save(list){localStorage.setItem(K,JSON.stringify(list))}
+function prosesFoto(file,cb){if(!file){cb("");return}var r=new FileReader();r.onload=function(){var img=new Image();img.onload=function(){try{var s=Math.min(1,320/Math.max(img.width,img.height));var c=document.createElement("canvas");c.width=Math.max(1,Math.round(img.width*s));c.height=Math.max(1,Math.round(img.height*s));c.getContext("2d").drawImage(img,0,0,c.width,c.height);cb(c.toDataURL("image/jpeg",0.82))}catch(e){cb("")}};img.onerror=function(){cb("")};img.src=r.result};r.onerror=function(){cb("")};r.readAsDataURL(file)}
+document.getElementById("foto").addEventListener("change",function(e){var f=e.target.files[0];var pv=document.getElementById("prev");if(!f){pv.style.display="none";return}prosesFoto(f,function(d){if(d){pv.src=d;pv.style.display="block"}})});
+document.getElementById("frm").addEventListener("submit",function(e){
+  e.preventDefault();
+  var err=document.getElementById("err"),ok=true,lines=["PENDAFTARAN SANTRI BARU - DARUL QURAN"],data={};
+  ids.forEach(function(id){var el=document.getElementById(id),v=el.value.trim();data[id]=v;if(!v){ok=false;el.style.borderColor="#b3261e"}else{el.style.borderColor="";lines.push(lbl[id]+": "+v)}});
+  if(!document.getElementById("setuju").checked){ok=false;err.textContent="Mohon centang pernyataan kesediaan.";return}
+  if(!ok){err.textContent="Mohon lengkapi semua kolom yang kosong.";return}
+  err.textContent="";
+  prosesFoto(document.getElementById("foto").files[0],function(foto){
+    data.foto=foto||"";data.tgl=new Date().toISOString();data.id="s"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+    var list=load();list.unshift(data);
+    try{save(list)}catch(ex){data.foto="";save(list)}
+    lines.push("Tanggal daftar: "+new Date(data.tgl).toLocaleDateString("id-ID"));
+    var t=lines.join("\n");
+    document.getElementById("teks").value=t;
+    var wa=document.getElementById("wa");
+    if(WA_NUMBER){wa.href="https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(t)}else{wa.style.display="none"}
+    var h=document.getElementById("hasil");h.style.display="block";h.scrollIntoView({behavior:"smooth",block:"center"});
+  });
+});
+document.getElementById("salin").addEventListener("click",function(){
+  var ta=document.getElementById("teks");ta.select();
+  try{navigator.clipboard.writeText(ta.value)}catch(e){document.execCommand("copy")}
+  this.textContent="Tersalin!";
+});
+(function(){var t=localStorage.getItem("dq_theme");if(t){document.documentElement.setAttribute("data-theme",t)}var b=document.getElementById("th");if(b){var u=function(){var c=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",c);localStorage.setItem("dq_theme",c);b.textContent=c==="dark"?"☀":"☾"};b.textContent=document.documentElement.getAttribute("data-theme")==="dark"?"☀":"☾";b.addEventListener("click",u)}})();
+</script>
+</body>
+</html>
