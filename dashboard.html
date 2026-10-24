@@ -1,120 +1,698 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Dashboard Panitia - Darul Quran</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Dashboard Panitia PSB - Darul Quran</title>
+  <meta name="description" content="Dashboard rekapitulasi dan manajemen pendaftaran calon santri baru Pesantren Modern Darul Quran.">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<header><div class="wrap bar">
-<a class="logo" href="index.html">🕌 Darul Quran</a>
-<nav><a href="index.html">Beranda</a><a href="info.html">Info &amp; Galeri</a><a href="dashboard.html">Dashboard</a><button class="theme-toggle" id="th" type="button" aria-label="Ganti tema">☾</button><a class="btn" href="daftar.html">Daftar</a></nav>
-</div></header>
+<body class="pattern-bg">
 
-<div class="mini"><div class="wrap">
-<p class="tag">PANITIA PENERIMAAN</p>
-<h1>Dashboard Pendaftaran</h1>
-<p class="sub">Rekap dan data santri yang mendaftar. Data tersimpan otomatis dari formulir pendaftaran (peramban ini).</p>
-</div></div>
+<!-- Header & Navbar -->
+<header>
+  <div class="wrap bar">
+    <a class="brand-link" href="index.html">
+      <div class="brand-icon">🕌</div>
+      <div class="brand-text">
+        <span class="brand-title">Darul Quran</span>
+        <span class="brand-sub">Panitia Penerimaan Santri</span>
+      </div>
+    </a>
+
+    <nav id="desktopNav">
+      <a class="nav-link" href="index.html">Beranda</a>
+      <a class="nav-link" href="info.html">Info &amp; Galeri</a>
+      <a class="nav-link active" href="dashboard.html">Dashboard Panitia</a>
+      <a class="nav-link" href="daftar.html">Form Pendaftaran</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="th" type="button" aria-label="Ganti tema mode terang/gelap" title="Ganti Tema">☾</button>
+      <a class="btn gold small" href="daftar.html">+ Tambah Pendaftar</a>
+      <button class="mobile-toggle" id="btnMobile" type="button" aria-label="Buka navigasi menu">☰</button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html"><span>🏠 Beranda Utama</span> ➔</a>
+    <a href="info.html"><span>📖 Info Profil &amp; Galeri</span> ➔</a>
+    <a class="active" href="dashboard.html"><span>📊 Dashboard Panitia</span> ➔</a>
+    <a href="daftar.html"><span>📝 Tambah Pendaftar Baru</span> ➔</a>
+  </div>
+</header>
+
+<!-- Mini Hero Header -->
+<div class="mini">
+  <div class="wrap">
+    <div class="section-badge" style="background: rgba(212, 175, 55, 0.2); border-color: var(--gold); color: #fde047;">PANEL ADMINISTRASI PANITIA PSB</div>
+    <h1>Rekapitulasi Calon Santri</h1>
+    <p class="sub">Kelola, saring, ekspor, dan pantau seluruh data santri baru yang masuk secara real-time pada peramban ini.</p>
+  </div>
+</div>
 
 <main>
-<section><div class="wrap">
-<div class="stats">
-<div class="stat"><div class="num" id="stTotal">0</div><p>Total pendaftar</p></div>
-<div class="stat"><div class="num" id="stLk">0</div><p>Laki-laki</p></div>
-<div class="stat"><div class="num" id="stPr">0</div><p>Perempuan</p></div>
-<div class="stat"><div class="num" id="stBulan">0</div><p>Pendaftar bulan ini</p></div>
-</div>
+  <section>
+    <div class="wrap">
+      
+      <!-- KPI Stats Grid -->
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-top">
+            <div class="num" id="stTotal">0</div>
+            <div class="stat-icon">👥</div>
+          </div>
+          <p>Total Calon Santri Mendaftar</p>
+        </div>
 
-<div class="toolbar">
-<input type="search" id="cari" placeholder="Cari nama, wali, asal sekolah, atau WhatsApp..." aria-label="Cari pendaftar">
-<button class="btn small" id="expJson" type="button">Unduh JSON</button>
-<button class="btn small" id="expCsv" type="button">Unduh CSV</button>
-<button class="btn small" id="salinAll" type="button">Salin Semua</button>
-<button class="btn small" id="contoh" type="button" style="background:transparent;color:var(--h)!important;border:2px solid var(--h)">Muat Contoh Data</button>
-<button class="btn small warn" id="hapusAll" type="button">Hapus Semua</button>
-</div>
+        <div class="stat">
+          <div class="stat-top">
+            <div class="num" id="stLk">0</div>
+            <div class="stat-icon" style="background: rgba(15, 118, 110, 0.15); color: #0f766e;">👦</div>
+          </div>
+          <p>Santri Putra (Ikhwan)</p>
+        </div>
 
-<div id="kosong" class="empty" style="display:none">
-<div class="num">📖</div>
-<h3>Belum ada pendaftar</h3><p style="color:var(--muted)">Data akan muncul setelah ada yang mendaftar, atau muat contoh data untuk melihat tampilan.</p>
-<div class="row" style="justify-content:center"><a class="btn" href="daftar.html">Buka Halaman Pendaftaran</a><button class="btn ghost" id="contoh2" type="button">Muat Contoh Data</button></div>
-</div>
+        <div class="stat">
+          <div class="stat-top">
+            <div class="num" id="stPr">0</div>
+            <div class="stat-icon" style="background: rgba(212, 175, 55, 0.2); color: #a17812;">👧</div>
+          </div>
+          <p>Santri Putri (Akhwat)</p>
+        </div>
 
-<div class="tbl-wrap" id="tblWrap">
-<table>
-<thead><tr><th>Foto</th><th>Nama</th><th>Jenkel</th><th>TTL</th><th>Jenjang</th><th>Asal Sekolah</th><th>Orang Tua / Wali</th><th>WhatsApp</th><th>Alamat</th><th>Tanggal Daftar</th><th></th></tr></thead>
-<tbody id="rows"></tbody>
-</table>
-</div>
-<p class="sub" style="margin:16px 0 0;font-size:14px">Terakhir diperbarui: <span id="upd">-</span></p>
-</div></section>
+        <div class="stat">
+          <div class="stat-top">
+            <div class="num" id="stBulan">0</div>
+            <div class="stat-icon" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">📅</div>
+          </div>
+          <p>Pendaftar Masuk Bulan Ini</p>
+        </div>
+      </div>
+
+      <!-- Action Toolbar -->
+      <div class="toolbar">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="search" id="cari" placeholder="Cari nama santri, wali, asal sekolah, alamat, atau no WA..." aria-label="Cari pendaftar">
+        </div>
+
+        <div class="filter-pills">
+          <button class="filter-btn active" data-filter="all" type="button">Semua</button>
+          <button class="filter-btn" data-filter="smp" type="button">SMP / MTs</button>
+          <button class="filter-btn" data-filter="sma" type="button">SMA / MA</button>
+          <button class="filter-btn" data-filter="lk" type="button">Laki-laki</button>
+          <button class="filter-btn" data-filter="pr" type="button">Perempuan</button>
+        </div>
+
+        <div class="row" style="margin-left: auto;">
+          <button class="btn small outline" id="expCsv" type="button" title="Unduh spreadsheet CSV untuk Excel">📥 Unduh CSV (Excel)</button>
+          <button class="btn small outline" id="expJson" type="button" title="Unduh cadangan data JSON">📄 Unduh JSON</button>
+          <button class="btn small" id="salinAll" type="button" style="background: var(--bg-surface-alt); color: var(--text-main)!important; border: 1px solid var(--border);">📋 Salin Ringkasan</button>
+          <button class="btn small gold" id="contoh" type="button">✨ Muat Data Sampel</button>
+          <button class="btn small warn" id="hapusAll" type="button">🗑️ Hapus Semua</button>
+        </div>
+      </div>
+
+      <!-- Live Info Count -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; font-size: 0.9rem; color: var(--text-muted); flex-wrap: wrap; gap: 8px;">
+        <div>Menampilkan <strong id="filterCount" style="color:var(--text-main)">0</strong> dari <span id="totalCount">0</span> pendaftar</div>
+        <div>Terakhir sinkronisasi: <strong id="upd" style="color:var(--text-main)">-</strong></div>
+      </div>
+
+      <!-- Empty State -->
+      <div id="kosong" class="empty" style="display:none">
+        <div class="empty-icon">📖</div>
+        <h3 style="font-size: 1.5rem; margin-bottom: 8px;">Belum Ada Data Pendaftar</h3>
+        <p style="color: var(--text-muted); max-width: 480px; margin: 0 auto 24px;">
+          Data formulir pendaftaran yang diisi calon santri akan otomatis muncul di sini. Anda juga dapat memuat contoh data untuk melihat simulasi dashboard secara instan.
+        </p>
+        <div class="row" style="justify-content: center;">
+          <button class="btn gold" id="contoh2" type="button">✨ Muat 6 Data Contoh Santri</button>
+          <a class="btn outline" href="daftar.html">Buka Formulir Pendaftaran</a>
+        </div>
+      </div>
+
+      <!-- Responsive Table -->
+      <div class="tbl-wrap" id="tblWrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Foto</th>
+              <th>Nama &amp; No. Reg</th>
+              <th>Jenkel</th>
+              <th>Jenjang</th>
+              <th>Asal Sekolah</th>
+              <th>Orang Tua / Wali</th>
+              <th>WhatsApp Wali</th>
+              <th>Tgl Daftar</th>
+              <th style="text-align: right;">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
 </main>
 
-<footer><div class="wrap">
-<strong>Darul Quran</strong><br>Alamat: [alamat sekolah] · WhatsApp: [nomor panitia] · Email: [email]<br>
-<a href="index.html">Beranda</a> · <a href="info.html">Info &amp; Galeri</a> · <a href="daftar.html">Pendaftaran</a> · <a href="dashboard.html">Dashboard</a>
-</div></footer>
+<!-- Santri Detail Modal Dialog -->
+<div class="modal-overlay" id="modalDetail">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose" type="button" aria-label="Tutup">&times;</button>
+    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px; border-bottom: 1.5px solid var(--border); padding-bottom: 16px;">
+      <div id="mFoto"></div>
+      <div>
+        <div class="section-badge" style="margin-bottom: 4px;" id="mBadgeJenjang">-</div>
+        <h3 id="mNama" style="font-size: 1.5rem; margin: 0;">-</h3>
+        <small style="color: var(--gold-dark); font-weight: 700;" id="mId">-</small>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; font-size: 0.95rem; margin-bottom: 24px;">
+      <div>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">Jenis Kelamin</div>
+        <strong id="mJk">-</strong>
+      </div>
+      <div>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">Tempat / Tgl Lahir</div>
+        <strong id="mTtl">-</strong>
+      </div>
+      <div style="grid-column: 1 / -1;">
+        <div style="color: var(--text-muted); font-size: 0.8rem;">Asal Sekolah</div>
+        <strong id="mAsal">-</strong>
+      </div>
+      <div>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">Nama Orang Tua / Wali</div>
+        <strong id="mWali">-</strong>
+      </div>
+      <div>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">No. WhatsApp Wali</div>
+        <strong id="mHp">-</strong>
+      </div>
+      <div style="grid-column: 1 / -1;">
+        <div style="color: var(--text-muted); font-size: 0.8rem;">Alamat Lengkap Domisili</div>
+        <span id="mAlamat" style="color: var(--text-main);">-</span>
+      </div>
+      <div style="grid-column: 1 / -1;">
+        <div style="color: var(--text-muted); font-size: 0.8rem;">Tanggal Mendaftar</div>
+        <span id="mTgl" style="color: var(--text-main);">-</span>
+      </div>
+    </div>
+
+    <div class="row" style="justify-content: flex-end;">
+      <a class="btn gold small" id="mWaBtn" href="#" target="_blank" rel="noopener">💬 Chat WhatsApp</a>
+      <button class="btn outline small" type="button" onclick="window.print()">🖨️ Cetak Lembar Santri</button>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="brand-link" style="margin-bottom: 16px;">
+          <div class="brand-icon">🕌</div>
+          <div class="brand-text">
+            <span class="brand-title" style="color:#ffffff">Darul Quran</span>
+            <span class="brand-sub">Pesantren Modern Terpadu</span>
+          </div>
+        </div>
+        <p>Dashboard internal panitia penerimaan santri baru untuk pengelolaan data yang akurat, aman, dan transparan.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigasi Halaman</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">🏠 Beranda Utama</a></li>
+          <li><a href="info.html">📖 Profil &amp; Fasilitas</a></li>
+          <li><a href="daftar.html">📝 Formulir Pendaftaran</a></li>
+          <li><a href="dashboard.html">📊 Dashboard Pendaftar</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Manajemen PSB</h4>
+        <ul class="footer-links">
+          <li><a href="javascript:void(0)" onclick="document.getElementById('expCsv').click()">📥 Ekspor Data Excel</a></li>
+          <li><a href="javascript:void(0)" onclick="document.getElementById('expJson').click()">📄 Cadangan JSON</a></li>
+          <li><a href="javascript:void(0)" onclick="document.getElementById('salinAll').click()">📋 Salin Rekap Teks</a></li>
+          <li><a href="javascript:void(0)" onclick="document.getElementById('contoh').click()">✨ Muat Data Sampel</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kontak Bantuan IT</h4>
+        <p>
+          📍 Sekretariat Panitia PSB Kompleks Darul Quran<br>
+          📞 Hotline: <strong>+62 812-3456-7890</strong><br>
+          ✉️ Email: <strong>panitia@darulquran.sch.id</strong>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 <strong>Pesantren Modern Darul Quran</strong>. Panel Panitia Penerimaan Santri.</div>
+      <div>Penyimpanan data aman di local storage peramban.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast Alert -->
+<div class="toast" id="toast">Aksi berhasil!</div>
 
 <script>
-var WA_NUMBER = "";
-var K = "dq_pendaftar";
-function load(){try{return JSON.parse(localStorage.getItem(K))||[]}catch(e){return[]}}
-function save(l){localStorage.setItem(K,JSON.stringify(l))}
-function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
-function cell(v){v=String(v==null?"":v);return '"'+v.replace(/"/g,'""')+'"'}
-function unduh(nama,konten,tipe){var b=new Blob(["\ufeff"+konten],{type:tipe});var u=URL.createObjectURL(b);var a=document.createElement("a");a.href=u;a.download=nama;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},500)}
-function contoh(){
- var n=Date.now(),d=function(h){return new Date(n-h*36e5).toISOString()};
- return [
- {id:"c1",nama:"Ahmad Fauzan Al-Hakim",jk:"Laki-laki",ttl:"Bukittinggi, 12 Mei 2012",jenjang:"SMP / MTs",asal:"MTs N 1 Bukittinggi",wali:"Salim Hakim",hp:"081234567890",alamat:"Jl. Masjid No. 10, Bukittinggi",foto:"",tgl:d(6)},
- {id:"c2",nama:"Siti Maryam Zahra",jk:"Perempuan",ttl:"Padang, 3 Agustus 2012",jenjang:"SMP / MTs",asal:"MI Nurul Yaqin Padang",wali:"Hj. Rina Sari",hp:"081345678901",alamat:"Jl. Khatib Sulaiman No. 5, Padang",foto:"",tgl:d(20)},
- {id:"c3",nama:"Muhammad Ilham Ramadhan",jk:"Laki-laki",ttl:"Pekanbaru, 21 Januari 2011",jenjang:"SMA / MA",asal:"MA Darul Huda Pekanbaru",wali:"Bpk. Ramadhan Saputra",hp:"082145678901",alamat:"Jl. Tuanku Tambusai No. 8, Pekanbaru",foto:"",tgl:d(30)},
- {id:"c4",nama:"Khadijah Aulia Rahma",jk:"Perempuan",ttl:"Jambi, 15 September 2011",jenjang:"SMA / MA",asal:"SMPIT Al-Ikhlas Jambi",wali:"Ibu Yulia Hartati",hp:"085245678901",alamat:"Jl. Gajah Mada No. 22, Jambi",foto:"",tgl:d(50)},
- {id:"c5",nama:"Abdullah Syafiq",jk:"Laki-laki",ttl:"Medan, 7 Juni 2013",jenjang:"SMP / MTs",asal:"SD IT Al-Azhar Medan",wali:"Bpk. Syafiq Ridwan",hp:"081145678901",alamat:"Jl. Sunan Bonang No. 3, Medan",foto:"",tgl:d(80)},
- {id:"c6",nama:"Nur Aisyah Putri",jk:"Perempuan",ttl:"Bandung, 30 November 2013",jenjang:"SMP / MTs",asal:"SD Negeri 1 Bandung",wali:"Ibu Putri Lestari",hp:"087845678901",alamat:"Jl. Asia Afrika No. 15, Bandung",foto:"",tgl:d(110)}
- ];
+var STORAGE_KEY = "dq_pendaftar";
+var currentFilter = "all";
+var currentQuery = "";
+
+function loadData() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  } catch (e) {
+    return [];
+  }
 }
-var q="";
-function daftar(){var l=load();if(q){var s=q.toLowerCase();l=l.filter(function(r){return [r.nama,r.wali,r.asal,r.hp,r.alamat].join(" ").toLowerCase().indexOf(s)>-1})}return l}
-function render(){
- var all=load(),l=daftar(),now=new Date();
- document.getElementById("stTotal").textContent=all.length;
- document.getElementById("stLk").textContent=all.filter(function(r){return r.jk==="Laki-laki"}).length;
- document.getElementById("stPr").textContent=all.filter(function(r){return r.jk==="Perempuan"}).length;
- document.getElementById("stBulan").textContent=all.filter(function(r){var t=new Date(r.tgl);return t.getMonth()===now.getMonth()&&t.getFullYear()===now.getFullYear()}).length;
- document.getElementById("kosong").style.display=all.length?"none":"block";
- document.getElementById("tblWrap").style.display=all.length?"block":"none";
- document.getElementById("rows").innerHTML=l.map(function(r){
-  var foto=r.foto?'<img class="thumb" src="'+r.foto+'" alt="Foto '+esc(r.nama)+'">':'<span class="avatar">'+esc((r.nama||"?").charAt(0))+"</span>";
-  var badge=r.jk==="Laki-laki"?'<span class="badge lk">L</span>':(r.jk==="Perempuan"?'<span class="badge pr">P</span>':esc(r.jk||"-"));
-  var tgl=r.tgl?new Date(r.tgl).toLocaleDateString("id-ID"):"-";
-  return '<tr><td>'+foto+'</td><td><strong>'+esc(r.nama)+"</strong></td><td>"+badge+"</td><td>"+esc(r.ttl)+"</td><td>"+esc(r.jenjang)+"</td><td>"+esc(r.asal)+"</td><td>"+esc(r.wali)+"</td><td>"+esc(r.hp)+"</td><td>"+esc(r.alamat)+"</td><td>"+tgl+'</td><td><button class="icon-del" type="button" data-id="'+r.id+'">Hapus</button></td></tr>';
- }).join("");
- document.getElementById("upd").textContent=all.length?new Date(all[0].tgl||Date.now()).toLocaleString("id-ID"):"-";
- Array.prototype.forEach.call(document.querySelectorAll(".icon-del"),function(b){b.addEventListener("click",function(){
-  if(!confirm("Hapus data pendaftar ini?"))return;
-  var id=this.getAttribute("data-id");save(load().filter(function(r){return r.id!==id}));render();
- }) });
+
+function saveData(list) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
 }
-document.getElementById("cari").addEventListener("input",function(){q=this.value.trim();render()});
-document.getElementById("expJson").addEventListener("click",function(){var l=load();if(!l.length){alert("Belum ada data.");return}unduh("pendaftar-darulquran.json",JSON.stringify(l,null,2),"application/json")});
-document.getElementById("expCsv").addEventListener("click",function(){var l=load();if(!l.length){alert("Belum ada data.");return}
- var h=["Nama","Jenis Kelamin","TTL","Jenjang","Asal Sekolah","Orang Tua/Wali","WhatsApp","Alamat","Tanggal Daftar"];
- var rows=l.map(function(r){return [r.nama,r.jk,r.ttl,r.jenjang,r.asal,r.wali,r.hp,r.alamat,r.tgl?new Date(r.tgl).toLocaleDateString("id-ID"):""].map(cell).join(",")});
- unduh("pendaftar-darulquran.csv",h.map(cell).join(",")+"\n"+rows.join("\n"),"text/csv;charset=utf-8")});
-document.getElementById("salinAll").addEventListener("click",function(){var l=load();if(!l.length){alert("Belum ada data.");return}
- var t=l.map(function(r,i){return (i+1)+". "+r.nama+" ("+r.jk+") - "+r.jenjang+" - Wali: "+r.wali+" - WA: "+r.hp}).join("\n");
- var ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();try{navigator.clipboard.writeText(ta.value)}catch(e){document.execCommand("copy")}ta.remove();this.textContent="Tersalin!";var b=this;setTimeout(function(){b.textContent="Salin Semua"},1500)});
-function muatContoh(){if(load().length&&!confirm("Ganti data yang ada dengan contoh data?"))return;save(contoh());render()}
-document.getElementById("contoh").addEventListener("click",muatContoh);
-document.getElementById("contoh2").addEventListener("click",muatContoh);
-document.getElementById("hapusAll").addEventListener("click",function(){if(!load().length){alert("Belum ada data.");return}if(confirm("Hapus SEMUA data pendaftar? Tindakan tidak dapat dibatalkan.")){save([]);render()}});
-window.addEventListener("storage",function(e){if(e.key===K)render()});
+
+function showToast(msg) {
+  var t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(function() {
+    t.classList.remove("show");
+  }, 2400);
+}
+
+function esc(str) {
+  return String(str == null ? "" : str).replace(/[&<>"']/g, function(c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+  });
+}
+
+function cell(v) {
+  v = String(v == null ? "" : v);
+  return '"' + v.replace(/"/g, '""') + '"';
+}
+
+function downloadFile(filename, content, mimeType) {
+  var blob = new Blob(["\ufeff" + content], { type: mimeType });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(function() { URL.revokeObjectURL(url); }, 500);
+}
+
+// 6 Realistic Demo Registrants
+function getSampleData() {
+  var n = Date.now();
+  var d = function(h) { return new Date(n - h * 3600000).toISOString(); };
+  return [
+    {
+      id: "DQ-2026-1042",
+      nama: "Ahmad Fauzan Al-Hakim",
+      jk: "Laki-laki",
+      ttl: "Bukittinggi, 12 Mei 2012",
+      jenjang: "SMP / MTs",
+      asal: "SD IT Al-Falah Bukittinggi",
+      wali: "H. Salim Hakim, S.E.",
+      hp: "081234567890",
+      alamat: "Jl. Panorama Indah No. 12, Tarok Dipo, Bukittinggi",
+      foto: "",
+      tgl: d(5)
+    },
+    {
+      id: "DQ-2026-1043",
+      nama: "Siti Maryam Az-Zahra",
+      jk: "Perempuan",
+      ttl: "Padang, 3 Agustus 2012",
+      jenjang: "SMP / MTs",
+      asal: "MI Nurul Yaqin Padang",
+      wali: "Hj. Rina Sari, M.Pd.",
+      hp: "081345678901",
+      alamat: "Jl. Khatib Sulaiman No. 45, Lolong Belanti, Padang",
+      foto: "",
+      tgl: d(18)
+    },
+    {
+      id: "DQ-2026-1044",
+      nama: "Muhammad Ilham Ramadhan",
+      jk: "Laki-laki",
+      ttl: "Pekanbaru, 21 Januari 2011",
+      jenjang: "SMA / MA",
+      asal: "MTs Negeri 1 Pekanbaru",
+      wali: "Bpk. Ramadhan Saputra",
+      hp: "082145678901",
+      alamat: "Jl. Tuanku Tambusai No. 88, Payung Sekaki, Pekanbaru",
+      foto: "",
+      tgl: d(28)
+    },
+    {
+      id: "DQ-2026-1045",
+      nama: "Khadijah Aulia Rahma",
+      jk: "Perempuan",
+      ttl: "Jambi, 15 September 2011",
+      jenjang: "SMA / MA",
+      asal: "SMPIT Al-Ikhlas Jambi",
+      wali: "Ibu Dra. Yulia Hartati",
+      hp: "085245678901",
+      alamat: "Jl. Gajah Mada No. 22, Pasar Jambi",
+      foto: "",
+      tgl: d(45)
+    },
+    {
+      id: "DQ-2026-1046",
+      nama: "Abdullah Syafiq Robbani",
+      jk: "Laki-laki",
+      ttl: "Medan, 7 Juni 2013",
+      jenjang: "SMP / MTs",
+      asal: "SD IT Al-Azhar Medan",
+      wali: "Bpk. dr. Syafiq Ridwan, Sp.A",
+      hp: "081145678901",
+      alamat: "Jl. Setia Budi No. 104, Medan Selayang",
+      foto: "",
+      tgl: d(72)
+    },
+    {
+      id: "DQ-2026-1047",
+      nama: "Nur Aisyah Humaira",
+      jk: "Perempuan",
+      ttl: "Bandung, 30 November 2013",
+      jenjang: "SMP / MTs",
+      asal: "SD Negeri 1 Merdeka Bandung",
+      wali: "Ibu Putri Lestari, S.Farm",
+      hp: "087845678901",
+      alamat: "Jl. Asia Afrika No. 15, Sumur Bandung",
+      foto: "",
+      tgl: d(96)
+    }
+  ];
+}
+
+function getFilteredList() {
+  var list = loadData();
+  var q = currentQuery.toLowerCase();
+  
+  if (q) {
+    list = list.filter(function(r) {
+      return [r.nama, r.wali, r.asal, r.hp, r.alamat, r.id].join(" ").toLowerCase().indexOf(q) > -1;
+    });
+  }
+
+  if (currentFilter === "smp") {
+    list = list.filter(function(r) { return r.jenjang && r.jenjang.indexOf("SMP") > -1; });
+  } else if (currentFilter === "sma") {
+    list = list.filter(function(r) { return r.jenjang && r.jenjang.indexOf("SMA") > -1; });
+  } else if (currentFilter === "lk") {
+    list = list.filter(function(r) { return r.jk === "Laki-laki"; });
+  } else if (currentFilter === "pr") {
+    list = list.filter(function(r) { return r.jk === "Perempuan"; });
+  }
+
+  return list;
+}
+
+function render() {
+  var all = loadData();
+  var filtered = getFilteredList();
+  var now = new Date();
+
+  // Update KPI counters
+  document.getElementById("stTotal").textContent = all.length;
+  document.getElementById("stLk").textContent = all.filter(function(r) { return r.jk === "Laki-laki"; }).length;
+  document.getElementById("stPr").textContent = all.filter(function(r) { return r.jk === "Perempuan"; }).length;
+  document.getElementById("stBulan").textContent = all.filter(function(r) {
+    var t = new Date(r.tgl);
+    return t.getMonth() === now.getMonth() && t.getFullYear() === now.getFullYear();
+  }).length;
+
+  document.getElementById("filterCount").textContent = filtered.length;
+  document.getElementById("totalCount").textContent = all.length;
+
+  // Toggle Table vs Empty State
+  document.getElementById("kosong").style.display = all.length ? "none" : "block";
+  document.getElementById("tblWrap").style.display = all.length ? "block" : "none";
+
+  // Render Table Rows
+  var tbody = document.getElementById("rows");
+  if (!filtered.length && all.length) {
+    tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;padding:32px;color:var(--text-muted)">Tidak ditemukan santri yang cocok dengan kriteria pencarian / filter ini.</td></tr>';
+  } else {
+    tbody.innerHTML = filtered.map(function(r) {
+      var foto = r.foto ?
+        '<img class="thumb" src="' + r.foto + '" alt="Foto ' + esc(r.nama) + '">' :
+        '<span class="avatar">' + esc((r.nama || "?").charAt(0)) + '</span>';
+      
+      var badgeJk = r.jk === "Laki-laki" ?
+        '<span class="badge lk">👦 Laki-laki</span>' :
+        (r.jk === "Perempuan" ? '<span class="badge pr">👧 Perempuan</span>' : esc(r.jk || "-"));
+      
+      var badgeJenjang = (r.jenjang && r.jenjang.indexOf("SMA") > -1) ?
+        '<span class="badge" style="background:rgba(16,185,129,0.15);color:#059669">SMA/MA</span>' :
+        '<span class="badge" style="background:rgba(6,78,59,0.12);color:var(--primary)">SMP/MTs</span>';
+
+      var tgl = r.tgl ? new Date(r.tgl).toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric" }) : "-";
+      var rawPhone = (r.hp || "").replace(/\D/g, "");
+      if (rawPhone.startsWith("0")) rawPhone = "62" + rawPhone.slice(1);
+
+      return '<tr>' +
+        '<td>' + foto + '</td>' +
+        '<td><strong>' + esc(r.nama) + '</strong><br><small style="color:var(--gold-dark);font-weight:600">' + esc(r.id || "-") + '</small></td>' +
+        '<td>' + badgeJk + '</td>' +
+        '<td>' + badgeJenjang + '</td>' +
+        '<td>' + esc(r.asal) + '</td>' +
+        '<td>' + esc(r.wali) + '</td>' +
+        '<td><a href="https://wa.me/' + rawPhone + '" target="_blank" rel="noopener" style="font-weight:600;display:inline-flex;align-items:center;gap:4px">💬 ' + esc(r.hp) + '</a></td>' +
+        '<td style="white-space:nowrap;font-size:0.88rem;color:var(--text-muted)">' + tgl + '</td>' +
+        '<td style="text-align: right;">' +
+          '<div class="action-btns" style="justify-content: flex-end;">' +
+            '<button class="icon-view" type="button" data-view="' + r.id + '" title="Lihat rincian berkas">Detail</button>' +
+            '<button class="icon-del" type="button" data-del="' + r.id + '" title="Hapus pendaftar">Hapus</button>' +
+          '</div>' +
+        '</td>' +
+      '</tr>';
+    }).join("");
+  }
+
+  document.getElementById("upd").textContent = all.length ? new Date().toLocaleTimeString("id-ID") : "-";
+
+  // Attach Delete Handlers
+  document.querySelectorAll("[data-del]").forEach(function(b) {
+    b.addEventListener("click", function() {
+      var id = this.getAttribute("data-del");
+      if (confirm("Apakah Anda yakin ingin menghapus data santri dengan ID " + id + "?")) {
+        var updated = loadData().filter(function(item) { return item.id !== id; });
+        saveData(updated);
+        render();
+        showToast("Data santri berhasil dihapus.");
+      }
+    });
+  });
+
+  // Attach Detail View Handlers
+  document.querySelectorAll("[data-view]").forEach(function(b) {
+    b.addEventListener("click", function() {
+      var id = this.getAttribute("data-view");
+      var item = loadData().find(function(r) { return r.id === id; });
+      if (item) showDetailModal(item);
+    });
+  });
+}
+
+// Modal Detail Display
+function showDetailModal(item) {
+  var modal = document.getElementById("modalDetail");
+  document.getElementById("mNama").textContent = item.nama;
+  document.getElementById("mId").textContent = "No. Registrasi: " + (item.id || "-");
+  document.getElementById("mBadgeJenjang").textContent = item.jenjang || "Pendaftar Baru";
+  document.getElementById("mJk").textContent = item.jk || "-";
+  document.getElementById("mTtl").textContent = item.ttl || "-";
+  document.getElementById("mAsal").textContent = item.asal || "-";
+  document.getElementById("mWali").textContent = item.wali || "-";
+  document.getElementById("mHp").textContent = item.hp || "-";
+  document.getElementById("mAlamat").textContent = item.alamat || "-";
+  document.getElementById("mTgl").textContent = item.tgl ? new Date(item.tgl).toLocaleString("id-ID") : "-";
+
+  var rawPhone = (item.hp || "").replace(/\D/g, "");
+  if (rawPhone.startsWith("0")) rawPhone = "62" + rawPhone.slice(1);
+  document.getElementById("mWaBtn").href = "https://wa.me/" + rawPhone + "?text=" + encodeURIComponent("Assalamu'alaikum Bpk/Ibu " + item.wali + ", panitia PSB Darul Quran mengonfirmasi pendaftaran ananda " + item.nama + " (" + item.id + ").");
+
+  var mFoto = document.getElementById("mFoto");
+  if (item.foto) {
+    mFoto.innerHTML = '<img class="thumb" style="width:72px;height:72px;border-radius:14px" src="' + item.foto + '" alt="' + esc(item.nama) + '">';
+  } else {
+    mFoto.innerHTML = '<span class="avatar" style="width:72px;height:72px;font-size:2rem;border-radius:14px">' + esc((item.nama || "?").charAt(0)) + '</span>';
+  }
+
+  modal.classList.add("open");
+}
+
+document.getElementById("modalClose").addEventListener("click", function() {
+  document.getElementById("modalDetail").classList.remove("open");
+});
+
+document.getElementById("modalDetail").addEventListener("click", function(e) {
+  if (e.target === this) this.classList.remove("open");
+});
+
+// Search and Filter Events
+document.getElementById("cari").addEventListener("input", function() {
+  currentQuery = this.value.trim();
+  render();
+});
+
+document.querySelectorAll(".filter-btn").forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    document.querySelectorAll(".filter-btn").forEach(function(b) { b.classList.remove("active"); });
+    this.classList.add("active");
+    currentFilter = this.getAttribute("data-filter");
+    render();
+  });
+});
+
+// Export CSV for Excel
+document.getElementById("expCsv").addEventListener("click", function() {
+  var list = loadData();
+  if (!list.length) {
+    alert("Belum ada data pendaftar untuk diekspor.");
+    return;
+  }
+  var headers = ["No. Registrasi", "Nama Santri", "Jenis Kelamin", "TTL", "Jenjang", "Asal Sekolah", "Nama Wali", "WhatsApp", "Alamat", "Tanggal Daftar"];
+  var rows = list.map(function(r) {
+    return [
+      r.id || "",
+      r.nama || "",
+      r.jk || "",
+      r.ttl || "",
+      r.jenjang || "",
+      r.asal || "",
+      r.wali || "",
+      r.hp || "",
+      r.alamat || "",
+      r.tgl ? new Date(r.tgl).toLocaleString("id-ID") : ""
+    ].map(cell).join(",");
+  });
+  downloadFile("rekap-santri-darulquran.csv", headers.map(cell).join(",") + "\n" + rows.join("\n"), "text/csv;charset=utf-8");
+  showToast("📥 Berkas CSV siap dibuka di Excel!");
+});
+
+// Export JSON
+document.getElementById("expJson").addEventListener("click", function() {
+  var list = loadData();
+  if (!list.length) {
+    alert("Belum ada data pendaftar.");
+    return;
+  }
+  downloadFile("backup-santri-darulquran.json", JSON.stringify(list, null, 2), "application/json");
+  showToast("📄 Cadangan berkas JSON berhasil diunduh.");
+});
+
+// Copy All Summary
+document.getElementById("salinAll").addEventListener("click", function() {
+  var list = loadData();
+  if (!list.length) {
+    alert("Belum ada data pendaftar.");
+    return;
+  }
+  var summary = list.map(function(r, i) {
+    return (i + 1) + ". [" + (r.id || "REG") + "] " + r.nama + " (" + r.jk + ") - " + r.jenjang + " - Wali: " + r.wali + " (WA: " + r.hp + ")";
+  }).join("\n");
+
+  var ta = document.createElement("textarea");
+  ta.value = summary;
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    navigator.clipboard.writeText(ta.value);
+  } catch (e) {
+    document.execCommand("copy");
+  }
+  ta.remove();
+  showToast("📋 Seluruh ringkasan pendaftar berhasil disalin!");
+});
+
+// Load Demo Data
+function loadSample() {
+  if (loadData().length && !confirm("Ganti data yang ada saat ini dengan data sampel simulasi 6 santri?")) return;
+  saveData(getSampleData());
+  render();
+  showToast("✨ 6 Data santri contoh berhasil dimuat!");
+}
+
+document.getElementById("contoh").addEventListener("click", loadSample);
+document.getElementById("contoh2").addEventListener("click", loadSample);
+
+// Clear All Data
+document.getElementById("hapusAll").addEventListener("click", function() {
+  var list = loadData();
+  if (!list.length) {
+    alert("Belum ada data untuk dihapus.");
+    return;
+  }
+  if (confirm("⚠️ PERINGATAN: Apakah Anda yakin ingin menghapus SELURUH (" + list.length + ") data pendaftar? Tindakan ini tidak dapat dibatalkan.")) {
+    saveData([]);
+    render();
+    showToast("🗑️ Seluruh data pendaftar telah dibersihkan.");
+  }
+});
+
+// Cross-tab auto-sync
+window.addEventListener("storage", function(e) {
+  if (e.key === STORAGE_KEY) render();
+});
+
+// Initial Render
 render();
-(function(){var t=localStorage.getItem("dq_theme");if(t){document.documentElement.setAttribute("data-theme",t)}var b=document.getElementById("th");if(b){var u=function(){var c=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",c);localStorage.setItem("dq_theme",c);b.textContent=c==="dark"?"☀":"☾"};b.textContent=document.documentElement.getAttribute("data-theme")==="dark"?"☀":"☾";b.addEventListener("click",u)}})();
+
+// Theme Management
+(function(){
+  var stored = localStorage.getItem("dq_theme");
+  if(stored){
+    document.documentElement.setAttribute("data-theme", stored);
+  }
+  var btn = document.getElementById("th");
+  function updateIcon(){
+    var isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    if(btn) btn.textContent = isDark ? "☀" : "☾";
+  }
+  updateIcon();
+  if(btn){
+    btn.addEventListener("click", function(){
+      var isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      var next = isDark ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("dq_theme", next);
+      updateIcon();
+    });
+  }
+})();
+
+// Mobile Drawer Toggle
+var btnMobile = document.getElementById("btnMobile");
+var mobileDrawer = document.getElementById("mobileDrawer");
+if(btnMobile && mobileDrawer){
+  btnMobile.addEventListener("click", function(){
+    mobileDrawer.classList.toggle("open");
+    btnMobile.textContent = mobileDrawer.classList.contains("open") ? "✕" : "☰";
+  });
+  mobileDrawer.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){
+      mobileDrawer.classList.remove("open");
+      btnMobile.textContent = "☰";
+    });
+  });
+}
 </script>
+
 </body>
 </html>

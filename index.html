@@ -1,84 +1,614 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Darul Quran - Beranda</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pesantren Modern Darul Quran - Beranda</title>
+  <meta name="description" content="Pendidikan Al-Qur'an bersanad, sains modern, dan pembinaan karakter islami 24 jam untuk putra-putri Anda.">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<header><div class="wrap bar">
-<a class="logo" href="index.html">🕌 Darul Quran</a>
-<nav><a href="index.html">Beranda</a><a href="info.html">Info &amp; Galeri</a><a href="dashboard.html">Dashboard</a><button class="theme-toggle" id="th" type="button" aria-label="Ganti tema">☾</button><a class="btn" href="daftar.html">Daftar</a></nav>
-</div></header>
+<body class="pattern-bg">
 
-<div class="hero"><div class="wrap">
-<div>
-<p class="tag">PENERIMAAN SANTRI BARU [2026/2027]</p>
-<h1>Darul Quran</h1>
-<p class="lead">Pendidikan Al-Qur'an yang menumbuhkan ilmu, akhlak, dan prestasi untuk putra-putri Anda.</p>
-<div class="cta"><a class="btn" href="daftar.html">Daftar Sekarang</a><a class="btn ghost" href="info.html">Lihat Info &amp; Galeri</a></div>
-</div>
-<!-- Foto asli pondok: <img src="foto/pondok.jpg" alt="Pondok Darul Quran" style="width:100%;border-radius:16px"> -->
-<svg role="img" aria-label="Ilustrasi masjid Darul Quran" viewBox="0 0 700 520"><circle cx="600" cy="80" r="40" fill="#e0b95c"/><circle cx="618" cy="68" r="34" fill="#0f3d33"/><circle cx="120" cy="70" r="3" fill="#e8e2d0"/><circle cx="200" cy="40" r="2.5" fill="#e8e2d0"/><circle cx="320" cy="90" r="2.5" fill="#e8e2d0"/><circle cx="430" cy="50" r="2" fill="#e8e2d0"/><rect y="450" width="700" height="70" fill="#174f42"/><rect x="30" y="360" width="140" height="90" fill="#1d5e4f"/><polygon points="22,360 100,318 178,360" fill="#174f42"/><rect x="45" y="385" width="24" height="34" fill="#e0b95c"/><rect x="90" y="385" width="24" height="34" fill="#e0b95c"/><rect x="530" y="360" width="140" height="90" fill="#1d5e4f"/><polygon points="522,360 600,318 678,360" fill="#174f42"/><rect x="555" y="385" width="24" height="34" fill="#e0b95c"/><rect x="600" y="385" width="24" height="34" fill="#e0b95c"/><rect x="250" y="180" width="26" height="270" fill="#f6f1e4"/><polygon points="244,180 263,140 282,180" fill="#e0b95c"/><line x1="263" y1="140" x2="263" y2="118" stroke="#e0b95c" stroke-width="4"/><circle cx="263" cy="112" r="8" fill="#e0b95c"/><rect x="424" y="180" width="26" height="270" fill="#f6f1e4"/><polygon points="418,180 437,140 456,180" fill="#e0b95c"/><line x1="437" y1="140" x2="437" y2="118" stroke="#e0b95c" stroke-width="4"/><circle cx="437" cy="112" r="8" fill="#e0b95c"/><rect x="280" y="300" width="140" height="150" fill="#f6f1e4"/><path d="M275 300 A75 75 0 0 1 425 300 Z" fill="#e0b95c"/><line x1="350" y1="225" x2="350" y2="196" stroke="#e0b95c" stroke-width="5"/><circle cx="350" cy="188" r="9" fill="#e0b95c"/><path d="M322 450 L322 385 A28 28 0 0 1 378 385 L378 450 Z" fill="#0f3d33"/><path d="M296 420 L296 380 A12 12 0 0 1 320 380 L320 420 Z" fill="#1d5e4f"/><path d="M380 420 L380 380 A12 12 0 0 1 404 380 L404 420 Z" fill="#1d5e4f"/><rect x="240" y="450" width="220" height="8" fill="#e0b95c"/><rect x="212" y="430" width="6" height="20" fill="#174f42"/><circle cx="215" cy="422" r="22" fill="#2a7a62"/><rect x="488" y="430" width="6" height="20" fill="#174f42"/><circle cx="491" cy="422" r="22" fill="#2a7a62"/></svg>
-</div></div>
+<!-- Header & Navbar -->
+<header>
+  <div class="wrap bar">
+    <a class="brand-link" href="index.html">
+      <div class="brand-icon">🕌</div>
+      <div class="brand-text">
+        <span class="brand-title">Darul Quran</span>
+        <span class="brand-sub">Pesantren Tahfidz &amp; Sains</span>
+      </div>
+    </a>
 
-<section><div class="wrap">
-<div class="stats">
-<div class="stat"><div class="num">3</div><p>Program unggulan harian</p></div>
-<div class="stat"><div class="num">2</div><p>Jenjang: SMP/MTs &amp; SMA/MA</p></div>
-<div class="stat"><div class="num">4</div><p>Tahap pendaftaran</p></div>
-</div>
-</div></section>
+    <nav id="desktopNav">
+      <a class="nav-link active" href="index.html">Beranda</a>
+      <a class="nav-link" href="info.html">Info &amp; Galeri</a>
+      <a class="nav-link" href="dashboard.html">Dashboard</a>
+      <a class="nav-link" href="#jadwal">Jadwal &amp; Biaya</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+    </nav>
 
-<section class="alt"><div class="wrap">
-<h2>Program unggulan</h2><p class="sub">Tiga hal yang kami jaga setiap hari.</p>
-<div class="grid">
-<div class="card"><h3>Tahfidz Al-Qur'an</h3><p>Hafalan dibimbing guru berpengalaman dengan target yang jelas.</p></div>
-<div class="card"><h3>Ilmu Umum</h3><p>Kurikulum sekolah yang seimbang agar siap melanjutkan pendidikan.</p></div>
-<div class="card"><h3>Akhlak dan Adab</h3><p>Pembiasaan ibadah dan adab dalam kehidupan asrama.</p></div>
-</div>
-</div></section>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="th" type="button" aria-label="Ganti tema mode terang/gelap" title="Ganti Tema">☾</button>
+      <a class="btn gold small" href="daftar.html">Daftar Santri Baru</a>
+      <button class="mobile-toggle" id="btnMobile" type="button" aria-label="Buka navigasi menu">☰</button>
+    </div>
+  </div>
 
-<section id="syarat"><div class="wrap">
-<h2>Syarat pendaftaran</h2><p class="sub">Siapkan berkas berikut sebelum mendaftar.</p>
-<div class="grid">
-<div class="card"><h3>Data calon santri</h3><ul><li>Fotokopi akta kelahiran</li><li>Fotokopi kartu keluarga</li><li>Pas foto 3x4 [2 lembar]</li></ul></div>
-<div class="card"><h3>Data pendidikan</h3><ul><li>Rapor terakhir</li><li>Ijazah atau surat keterangan lulus</li><li>Surat pindah [jika ada]</li></ul></div>
-</div>
-</div></section>
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a class="active" href="index.html"><span>🏠 Beranda</span> ➔</a>
+    <a href="info.html"><span>📖 Info Profil &amp; Galeri</span> ➔</a>
+    <a href="dashboard.html"><span>📊 Dashboard Panitia</span> ➔</a>
+    <a href="#jadwal"><span>💰 Jadwal &amp; Biaya</span> ➔</a>
+    <a href="#faq"><span>❓ Tanya Jawab (FAQ)</span> ➔</a>
+    <a class="btn gold" style="margin-top: 10px; text-align: center; justify-content: center;" href="daftar.html">📝 Formulir Pendaftaran</a>
+  </div>
+</header>
 
-<section id="alur" class="alt"><div class="wrap">
-<h2>Alur pendaftaran</h2><p class="sub">Empat langkah mudah.</p>
-<div class="grid">
-<div class="card"><div class="num">1</div><h3>Isi formulir</h3><p>Lengkapi data di halaman Daftar.</p></div>
-<div class="card"><div class="num">2</div><h3>Kirim berkas</h3><p>Serahkan dokumen persyaratan.</p></div>
-<div class="card"><div class="num">3</div><h3>Ikut seleksi</h3><p>Tes baca Al-Qur'an dan wawancara.</p></div>
-<div class="card"><div class="num">4</div><h3>Daftar ulang</h3><p>Lihat pengumuman, selesaikan administrasi.</p></div>
-</div>
-</div></section>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="hero-tag">
+        <span>✨</span> PENERIMAAN SANTRI BARU (PSB) T.A. 2026/2027
+      </div>
+      <h1>Mencetak Generasi <span class="gold">Qur'ani</span>, Mandiri &amp; Berprestasi</h1>
+      <p class="lead">Pendidikan terpadu Al-Qur'an bersanad, sains modern, dan pembentukan akhlakul karimah di lingkungan pesantren yang asri, aman, dan penuh kasih sayang.</p>
+      
+      <div class="cta">
+        <a class="btn gold" href="daftar.html">
+          <span>Daftar Sekarang</span>
+          <span>➔</span>
+        </a>
+        <a class="btn ghost" href="info.html">
+          <span>Jelajahi Info &amp; Fasilitas</span>
+        </a>
+      </div>
 
-<section id="biaya"><div class="wrap">
-<h2>Jadwal dan biaya</h2><p class="sub">Isi sesuai informasi resmi sekolah.</p>
-<div class="grid">
-<div class="card"><h3>Jadwal</h3><ul><li>Pendaftaran: [tanggal] - [tanggal]</li><li>Seleksi: [tanggal]</li><li>Pengumuman: [tanggal]</li></ul></div>
-<div class="card"><h3>Biaya</h3><ul><li>Pendaftaran: Rp [__]</li><li>Uang pangkal: Rp [__]</li><li>SPP bulanan: Rp [__]</li></ul></div>
-</div>
-</div></section>
+      <div class="hero-trust">
+        <div class="trust-item"><span class="icon">✓</span> Terakreditasi A Unggul</div>
+        <div class="trust-item"><span class="icon">✓</span> Sanad Tahfidz Mutqin</div>
+        <div class="trust-item"><span class="icon">✓</span> Beasiswa Berprestasi</div>
+      </div>
+    </div>
 
-<section class="alt"><div class="wrap" style="text-align:center">
-<h2>Siap bergabung?</h2><p class="sub" style="margin-inline:auto">Pendaftaran terbuka untuk putra-putri muslimah dan muslim.</p>
-<div class="cta" style="justify-content:center;padding-bottom:0"><a class="btn" href="daftar.html">Daftar Sekarang</a><a class="btn ghost" style="color:var(--h)!important;border-color:var(--h)" href="dashboard.html">Dashboard Panitia</a></div>
-</div></section>
+    <!-- Visual Showcase Card -->
+    <div class="hero-card">
+      <div class="hero-card-badge">✨ Kampus Prestisius</div>
+      <div class="hero-art">
+        <svg viewBox="0 0 540 380" role="img" aria-label="Ilustrasi Kampus Pesantren Darul Quran" style="background: linear-gradient(180deg, #092c22 0%, #031b14 100%);">
+          <!-- Sky and Stars -->
+          <circle cx="460" cy="70" r="38" fill="#d4af37" opacity="0.95"/>
+          <circle cx="478" cy="58" r="32" fill="#092c22"/>
+          <circle cx="80" cy="50" r="2.5" fill="#fef3c7" opacity="0.8"/>
+          <circle cx="160" cy="30" r="3" fill="#fef3c7" opacity="0.9"/>
+          <circle cx="280" cy="45" r="2" fill="#fef3c7" opacity="0.7"/>
+          <circle cx="370" cy="25" r="2.5" fill="#fef3c7" opacity="0.8"/>
+          <circle cx="430" cy="110" r="1.5" fill="#fef3c7" opacity="0.6"/>
 
-<footer><div class="wrap">
-<strong>Darul Quran</strong><br>Alamat: [alamat sekolah] · WhatsApp: [nomor panitia] · Email: [email]<br>
-<a href="index.html">Beranda</a> · <a href="info.html">Info &amp; Galeri</a> · <a href="daftar.html">Pendaftaran</a> · <a href="dashboard.html">Dashboard</a>
-</div></footer>
+          <!-- Islamic Arch Outline in background -->
+          <path d="M70 380 L70 200 Q270 40 470 200 L470 380 Z" fill="none" stroke="rgba(212, 175, 55, 0.2)" stroke-width="2"/>
+          <path d="M90 380 L90 215 Q270 70 450 215 L450 380 Z" fill="none" stroke="rgba(212, 175, 55, 0.12)" stroke-width="1.5"/>
 
+          <!-- Distant silhouette buildings -->
+          <rect x="40" y="270" width="110" height="110" fill="#0d3b2e" rx="4"/>
+          <polygon points="35,270 95,235 155,270" fill="#092c22"/>
+          <rect x="390" y="270" width="110" height="110" fill="#0d3b2e" rx="4"/>
+          <polygon points="385,270 445,235 505,270" fill="#092c22"/>
+
+          <!-- Main Mosque Structure -->
+          <!-- Minarets Left & Right -->
+          <rect x="180" y="140" width="22" height="240" fill="#f8faf9" rx="2"/>
+          <polygon points="174,140 191,105 208,140" fill="#d4af37"/>
+          <circle cx="191" cy="98" r="5" fill="#d4af37"/>
+
+          <rect x="338" y="140" width="22" height="240" fill="#f8faf9" rx="2"/>
+          <polygon points="332,140 349,105 366,140" fill="#d4af37"/>
+          <circle cx="349" cy="98" r="5" fill="#d4af37"/>
+
+          <!-- Central Mosque Dome -->
+          <rect x="202" y="230" width="136" height="150" fill="#ffffff" rx="4"/>
+          <!-- Golden Dome Arc -->
+          <path d="M198 230 C198 135 342 135 342 230 Z" fill="url(#domeGrad)"/>
+          <line x1="270" y1="140" x2="270" y2="115" stroke="#d4af37" stroke-width="4"/>
+          <circle cx="270" cy="110" r="7" fill="#d4af37"/>
+
+          <!-- Mosque Grand Door Arch -->
+          <path d="M242 380 L242 315 C242 285 298 285 298 315 L298 380 Z" fill="#064e3b"/>
+          <line x1="270" y1="298" x2="270" y2="380" stroke="#d4af37" stroke-width="1.5"/>
+
+          <!-- Windows Left and Right -->
+          <path d="M216 280 L216 260 C216 248 232 248 232 260 L232 280 Z" fill="#d4af37" opacity="0.85"/>
+          <path d="M308 280 L308 260 C308 248 324 248 324 260 L324 280 Z" fill="#d4af37" opacity="0.85"/>
+
+          <!-- Foreground Palm & Garden Accents -->
+          <ellipse cx="140" cy="370" rx="36" ry="18" fill="#10b981" opacity="0.8"/>
+          <ellipse cx="400" cy="370" rx="36" ry="18" fill="#10b981" opacity="0.8"/>
+
+          <!-- Gradients definition -->
+          <defs>
+            <linearGradient id="domeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fef08a"/>
+              <stop offset="50%" stop-color="#d4af37"/>
+              <stop offset="100%" stop-color="#9a7210"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="hero-pill-stats">
+        <div class="hero-pill">
+          <div class="pill-icon">📖</div>
+          <div>
+            <div class="pill-val">30 Juz</div>
+            <div class="pill-lbl">Target Mutqin</div>
+          </div>
+        </div>
+        <div class="hero-pill">
+          <div class="pill-icon">🏆</div>
+          <div>
+            <div class="pill-val">100%</div>
+            <div class="pill-lbl">Lulusan Mandiri</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Grid Bar -->
+<section style="padding: 40px 0 20px; margin-top: -30px; position: relative; z-index: 10;">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-top">
+          <div class="num">30</div>
+          <div class="stat-icon">📖</div>
+        </div>
+        <p>Juz Target Hafalan Mutqin dengan bimbingan ustadz bersanad</p>
+      </div>
+
+      <div class="stat">
+        <div class="stat-top">
+          <div class="num">2</div>
+          <div class="stat-icon">🎓</div>
+        </div>
+        <p>Jenjang Formal Terakreditasi: SMP/MTs &amp; SMA/MA Terpadu</p>
+      </div>
+
+      <div class="stat">
+        <div class="stat-top">
+          <div class="num">15:1</div>
+          <div class="stat-icon">👥</div>
+        </div>
+        <p>Rasio Santri &amp; Ustadz demi pendampingan maksimal</p>
+      </div>
+
+      <div class="stat">
+        <div class="stat-top">
+          <div class="num">24h</div>
+          <div class="stat-icon">🛡️</div>
+        </div>
+        <p>Pengasuhan Asrama Islami, bimbingan ibadah &amp; keamanan terjamin</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Program Unggulan -->
+<section class="alt" id="program">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-badge">Pilar Pendidikan</div>
+      <h2>Program Pendidikan Unggulan</h2>
+      <p class="sub">Kurikulum komprehensif memadukan keutamaan wahyu Ilahi dan kemajuan sains modern untuk bekal masa depan santri.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-top-icon">📖</div>
+        <h3>Tahfidz Al-Qur'an Bersanad</h3>
+        <p>Metode hafalan intensif dengan talaqqi langsung kepada para hafidz bersanad. Santri dibimbing memahami makhraj, tajwid, hingga memiliki hafalan yang mutqin dan berjiwa qur'ani.</p>
+        <ul class="card-pill-list">
+          <li>Target 30 Juz</li>
+          <li>Tahsin &amp; Tajwid</li>
+          <li>Syahadah Sanad</li>
+          <li>Muraja'ah Terjadwal</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-top-icon">🔬</div>
+        <h3>Sains &amp; Kurikulum Terpadu</h3>
+        <p>Memadukan kurikulum nasional (Kemendikbudristek &amp; Kemenag) dengan sains modern, teknologi komputasi, serta penguasaan aktif Bahasa Arab dan Bahasa Inggris.</p>
+        <ul class="card-pill-list">
+          <li>Laboratorium IPA &amp; Komputer</li>
+          <li>Bahasa Arab &amp; Inggris Aktif</li>
+          <li>Persiapan PTN &amp; Al-Azhar</li>
+          <li>Klub Sains</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-top-icon">🌱</div>
+        <h3>Tarbiyah &amp; Akhlakul Karimah</h3>
+        <p>Pendidikan karakter berbasis keteladanan salafus shalih. Santri dibiasakan shalat berjamaah awal waktu di masjid, qiyamullail, puasa sunnah, adab harian, serta kemandirian hidup asrama.</p>
+        <ul class="card-pill-list">
+          <li>Shalat Berjamaah 5 Waktu</li>
+          <li>Qiyamullail &amp; Dhuha</li>
+          <li>Leadership Santri</li>
+          <li>Lingkungan Bebas Bullying</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Syarat Pendaftaran -->
+<section id="syarat">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-badge">Persyaratan Masuk</div>
+      <h2>Syarat Pendaftaran Santri</h2>
+      <p class="sub">Persiapkan dokumen berikut untuk mempermudah verifikasi panitia penerimaan santri baru.</p>
+    </div>
+
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+      <div class="card">
+        <div class="card-top-icon">📋</div>
+        <h3>Dokumen Calon Santri</h3>
+        <p>Berkas identitas kependudukan dan foto diri calon santri:</p>
+        <ul>
+          <li><strong>Fotokopi Akta Kelahiran</strong> (2 lembar)</li>
+          <li><strong>Fotokopi Kartu Keluarga (KK)</strong> terbaru (2 lembar)</li>
+          <li><strong>Fotokopi KTP kedua orang tua / wali</strong></li>
+          <li><strong>Pas Foto berwarna 3x4</strong> (latar belakang biru/merah, 4 lembar)</li>
+          <li><strong>Surat Keterangan Sehat</strong> dari dokter / puskesmas</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-top-icon">🎓</div>
+        <h3>Dokumen Akademik Asal</h3>
+        <p>Berkas riwayat belajar dari jenjang sekolah sebelumnya:</p>
+        <ul>
+          <li><strong>Fotokopi Rapor</strong> 3 semester terakhir yang telah dilegalisir</li>
+          <li><strong>Fotokopi Ijazah / SKL</strong> (Surat Keterangan Lulus) jika sudah terbit</li>
+          <li><strong>NISN</strong> (Nomor Induk Siswa Nasional) yang valid</li>
+          <li><strong>Surat Pindah &amp; Rapor Asli</strong> (khusus untuk santri pindahan)</li>
+          <li><strong>Sertifikat Piagam Prestasi</strong> (tahfidz/akademik/olahraga, jika ada)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Alur Pendaftaran -->
+<section class="alt" id="alur">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-badge">Tata Cara PSB</div>
+      <h2>Alur Pendaftaran Mudah</h2>
+      <p class="sub">Empat tahapan terstruktur mulai dari pendaftaran online hingga penyambutan santri baru di pondok.</p>
+    </div>
+
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+      <div class="card step-card">
+        <div class="step-badge">1</div>
+        <h3>Isi Formulir Online</h3>
+        <p>Buka halaman formulir pendaftaran, isi data calon santri dan orang tua secara lengkap serta unggah pas foto.</p>
+      </div>
+
+      <div class="card step-card">
+        <div class="step-badge">2</div>
+        <h3>Konfirmasi &amp; Berkas</h3>
+        <p>Kirim konfirmasi ke panitia lewat WhatsApp dan serahkan berkas administrasi fisik atau scan digital.</p>
+      </div>
+
+      <div class="card step-card">
+        <div class="step-badge">3</div>
+        <h3>Ikuti Tes Seleksi</h3>
+        <p>Tes pemetaan kemampuan membaca Al-Qur'an, tes potensi akademik, serta wawancara santri dan orang tua.</p>
+      </div>
+
+      <div class="card step-card">
+        <div class="step-badge">4</div>
+        <h3>Daftar Ulang &amp; Masuk</h3>
+        <p>Melihat pengumuman kelulusan, menuntaskan administrasi daftar ulang, dan bersiap masuk asrama pondok.</p>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <a class="btn gold" href="daftar.html">Mulai Pendaftaran Sekarang ➔</a>
+    </div>
+  </div>
+</section>
+
+<!-- Jadwal & Biaya Pendidikan -->
+<section id="jadwal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-badge">Transparansi Informasi</div>
+      <h2>Jadwal &amp; Biaya Pendidikan</h2>
+      <p class="sub">Investasi terbaik untuk pembentukan akhlak, ilmu, dan masa depan putra-putri tercinta.</p>
+    </div>
+
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+      <!-- Jadwal Gelombang -->
+      <div class="card pricing-card">
+        <div class="card-top-icon">📅</div>
+        <h3>Jadwal Gelombang Pendaftaran</h3>
+        <p style="margin-bottom: 20px;">Pendaftaran T.A. 2026/2027 dibagi menjadi 2 gelombang (dapat ditutup lebih awal jika kuota terpenuhi):</p>
+        
+        <div class="price-item">
+          <div>
+            <div class="lbl">Gelombang I (Prioritas)</div>
+            <small style="color:var(--text-muted)">Diskon infaq sarana 10%</small>
+          </div>
+          <div class="val">1 Okt - 31 Des 2026</div>
+        </div>
+
+        <div class="price-item">
+          <div>
+            <div class="lbl">Tes Seleksi Gelombang I</div>
+            <small style="color:var(--text-muted)">Daring / Luring di Kampus</small>
+          </div>
+          <div class="val">10 Jan 2027</div>
+        </div>
+
+        <div class="price-item">
+          <div>
+            <div class="lbl">Gelombang II (Reguler)</div>
+            <small style="color:var(--text-muted)">Jika kuota masih tersedia</small>
+          </div>
+          <div class="val">1 Feb - 30 Apr 2027</div>
+        </div>
+
+        <div class="price-item">
+          <div>
+            <div class="lbl">Masuk Perdana Santri Baru</div>
+            <small style="color:var(--text-muted)">Khutbah Ta'aruf &amp; Masa Orientasi</small>
+          </div>
+          <div class="val">Juli 2027</div>
+        </div>
+      </div>
+
+      <!-- Rincian Biaya -->
+      <div class="card pricing-card highlight">
+        <div class="pricing-ribbon">Resmi &amp; Transparan</div>
+        <div class="card-top-icon">💳</div>
+        <h3>Rincian Biaya Pendidikan</h3>
+        <p style="margin-bottom: 20px;">Seluruh biaya transparan tanpa pungutan liar selama masa pendidikan santri:</p>
+
+        <div class="price-item">
+          <div>
+            <div class="lbl">Biaya Pendaftaran &amp; Tes</div>
+            <small style="color:var(--text-muted)">Termasuk map berkas &amp; seleksi</small>
+          </div>
+          <div class="val">Rp 250.000</div>
+        </div>
+
+        <div class="price-item">
+          <div>
+            <div class="lbl">Infaq Gedung &amp; Sarana</div>
+            <small style="color:var(--text-muted)">Dibayar 1x selama masa pendidikan</small>
+          </div>
+          <div class="val">Rp 8.500.000</div>
+        </div>
+
+        <div class="price-item">
+          <div>
+            <div class="lbl">Paket Seragam &amp; Perlengkapan</div>
+            <small style="color:var(--text-muted)">5 stel seragam, kasur, lemari, kitab</small>
+          </div>
+          <div class="val">Rp 2.100.000</div>
+        </div>
+
+        <div class="price-item">
+          <div>
+            <div class="lbl">Iuran Bulanan (SPP &amp; Asrama)</div>
+            <small style="color:var(--text-muted)">Makan 3x sehat bergizi, laundry, pembinaan</small>
+          </div>
+          <div class="val">Rp 1.250.000 <span style="font-size:0.8rem;font-weight:normal">/bln</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scholarship Notice -->
+    <div style="margin-top: 28px; background: var(--bg-surface); border: 1.5px dashed var(--gold); border-radius: var(--radius-lg); padding: 22px 28px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+      <div style="font-size: 2.2rem;">🌟</div>
+      <div style="flex: 1; min-width: 260px;">
+        <h4 style="margin: 0 0 4px; color: var(--primary);">Program Beasiswa Tahfidz &amp; Dhuafa</h4>
+        <p style="margin: 0; color: var(--text-muted); font-size: 0.95rem;">Tersedia beasiswa pembebasan biaya masuk hingga 100% bagi santri berprestasi minimal hafalan 5 juz mutqin atau yatim/dhuafa berprestasi.</p>
+      </div>
+      <a class="btn small outline" href="https://wa.me/6281234567890?text=Halo%20Panitia%20Darul%20Quran,%20saya%20ingin%20konsultasi%20Program%20Beasiswa" target="_blank" rel="noopener">Konsultasi Beasiswa</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="alt" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-badge">Tanya Jawab</div>
+      <h2>Pertanyaan Sering Diajukan</h2>
+      <p class="sub">Temukan jawaban cepat atas pertanyaan seputar kehidupan santri dan pendaftaran di Darul Quran.</p>
+    </div>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-header">
+          <span>Bagaimana aturan penggunaan gadget atau telepon bagi santri?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-body">
+          Untuk menjaga kekhusyukan hafalan Al-Qur'an dan interaksi sosial yang sehat, santri tidak diperkenankan membawa smartphone pribadi ke dalam asrama. Sekolah menyediakan fasilitas telepon wartel pondok berkala pada akhir pekan untuk santri menghubungi orang tua secara teratur.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-header">
+          <span>Apakah santri yang belum lancar membaca Al-Qur'an tetap bisa mendaftar?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-body">
+          Bisa! Tes seleksi Al-Qur'an bertujuan untuk pemetaan kelas (*tashnif*). Santri yang belum lancar akan mendapatkan bimbingan matrikulasi tahsin khusus sebelum masuk ke halaqah target tahfidz intensif.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-header">
+          <span>Kapan wali santri dapat menjenguk putra-putrinya di asrama?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-body">
+          Jadwal kunjungan santri diadakan 2 minggu sekali pada hari Ahad, pukul 08.00 s.d 17.00 WIB. Orang tua dapat menikmati kebersamaan di area taman dan ruang kunjungan asri pondok pesantren.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-header">
+          <span>Bagaimana mutu gizi makanan dan kesehatan santri?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-body">
+          Makanan disajikan 3 kali sehari dengan menu seimbang, bersih, dan higienis yang dirancang oleh ahli gizi. Pesantren juga memiliki Pos Kesehatan Pesantren (Poskestren) dengan tenaga perawat siaga 24 jam dan dokter mitra.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ready to Join CTA -->
+<section style="background: var(--hero-bg); color: #ffffff; text-align: center; padding: 76px 0;">
+  <div class="wrap">
+    <div class="section-badge" style="background: rgba(212, 175, 55, 0.2); border-color: var(--gold); color: #fde047;">Bergabunglah Bersama Kami</div>
+    <h2 style="color: #ffffff; font-size: clamp(32px, 4.5vw, 46px); margin-bottom: 16px;">Siap Mengantarkan Putra-Putri Menjadi Hafidz Al-Qur'an?</h2>
+    <p class="sub" style="color: #d1fae5; max-width: 650px; margin: 0 auto 36px; font-size: 1.15rem;">
+      Kuota pendaftaran setiap gelombang terbatas demi menjaga efektivitas pembinaan dan kualitas pendidikan santri.
+    </p>
+    <div class="cta" style="justify-content: center; margin-bottom: 0;">
+      <a class="btn gold" href="daftar.html" style="padding: 16px 36px; font-size: 1.1rem;">
+        <span>Daftar Santri Baru Sekarang</span>
+        <span>➔</span>
+      </a>
+      <a class="btn ghost" href="dashboard.html" style="padding: 16px 28px;">
+        <span>📊 Pantau Dashboard Panitia</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Modern Footer -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="brand-link" style="margin-bottom: 16px;">
+          <div class="brand-icon">🕌</div>
+          <div class="brand-text">
+            <span class="brand-title" style="color:#ffffff">Darul Quran</span>
+            <span class="brand-sub">Pesantren Modern Terpadu</span>
+          </div>
+        </div>
+        <p>Lembaga pendidikan Islam yang berkomitmen melahirkan generasi yang hafidz Al-Qur'an, unggul dalam sains, dan berakhlak mulia untuk kemaslahatan umat.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigasi Halaman</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">🏠 Beranda Utama</a></li>
+          <li><a href="info.html">📖 Profil &amp; Fasilitas</a></li>
+          <li><a href="daftar.html">📝 Formulir Pendaftaran</a></li>
+          <li><a href="dashboard.html">📊 Dashboard Pendaftar</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Informasi PSB</h4>
+        <ul class="footer-links">
+          <li><a href="#program">Program Unggulan</a></li>
+          <li><a href="#syarat">Syarat Berkas</a></li>
+          <li><a href="#alur">Alur Pendaftaran</a></li>
+          <li><a href="#jadwal">Rincian Biaya &amp; Jadwal</a></li>
+          <li><a href="#faq">Tanya Jawab (FAQ)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kontak Panitia</h4>
+        <p>
+          📍 Jl. Raya Pesantren No. 45, Kompleks Islamic Center<br>
+          📞 WhatsApp: <strong>+62 812-3456-7890</strong><br>
+          ✉️ Email: <strong>psb@darulquran.sch.id</strong><br>
+          🕒 Jam Layanan: Senin - Sabtu (08.00 - 16.00 WIB)
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 <strong>Pesantren Modern Darul Quran</strong>. Seluruh Hak Cipta Dilindungi.</div>
+      <div>Dibuat dengan dedikasi untuk kemajuan pendidikan Islam Indonesia.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a class="fab-wa" href="https://wa.me/6281234567890?text=Assalamu%27alaikum%20Panitia%20PSB%20Darul%20Quran,%20saya%20ingin%20bertanya%20tentang%20penerimaan%20santri%20baru." target="_blank" rel="noopener" aria-label="Hubungi panitia via WhatsApp" title="Chat Panitia WhatsApp">
+  💬
+</a>
+
+<!-- JavaScript for Dark Mode, Mobile Menu, and FAQ Accordion -->
 <script>
-(function(){var t=localStorage.getItem("dq_theme");if(t){document.documentElement.setAttribute("data-theme",t);}var b=document.getElementById("th");if(b){var u=function(){var c=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",c);localStorage.setItem("dq_theme",c);b.textContent=c==="dark"?"☀":"☾";};b.textContent=document.documentElement.getAttribute("data-theme")==="dark"?"☀":"☾";b.addEventListener("click",u);}})();
+// Theme Management
+(function(){
+  var stored = localStorage.getItem("dq_theme");
+  if(stored){
+    document.documentElement.setAttribute("data-theme", stored);
+  }
+  var btn = document.getElementById("th");
+  function updateIcon(){
+    var isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    if(btn) btn.textContent = isDark ? "☀" : "☾";
+  }
+  updateIcon();
+  if(btn){
+    btn.addEventListener("click", function(){
+      var isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      var next = isDark ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("dq_theme", next);
+      updateIcon();
+    });
+  }
+})();
+
+// Mobile Drawer Toggle
+var btnMobile = document.getElementById("btnMobile");
+var mobileDrawer = document.getElementById("mobileDrawer");
+if(btnMobile && mobileDrawer){
+  btnMobile.addEventListener("click", function(){
+    mobileDrawer.classList.toggle("open");
+    btnMobile.textContent = mobileDrawer.classList.contains("open") ? "✕" : "☰";
+  });
+  // Close when clicking any link inside drawer
+  mobileDrawer.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){
+      mobileDrawer.classList.remove("open");
+      btnMobile.textContent = "☰";
+    });
+  });
+}
+
+// FAQ Accordion
+document.querySelectorAll(".faq-header").forEach(function(h){
+  h.addEventListener("click", function(){
+    var parent = this.parentElement;
+    parent.classList.toggle("active");
+  });
+});
 </script>
+
 </body>
 </html>

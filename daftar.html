@@ -1,83 +1,503 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Pendaftaran Santri Baru - Darul Quran</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pendaftaran Santri Baru - Darul Quran</title>
+  <meta name="description" content="Formulir resmi penerimaan santri baru Pesantren Modern Darul Quran tahun ajaran 2026/2027.">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<header><div class="wrap bar">
-<a class="logo" href="index.html">🕌 Darul Quran</a>
-<nav><a href="index.html">Beranda</a><a href="info.html">Info &amp; Galeri</a><a href="dashboard.html">Dashboard</a><button class="theme-toggle" id="th" type="button" aria-label="Ganti tema">☾</button><a class="btn" href="#daftar">Daftar</a></nav>
-</div></header>
+<body class="pattern-bg">
 
-<div class="mini"><div class="wrap">
-<p class="tag">PENERIMAAN SANTRI BARU [2026/2027]</p>
-<h1>Formulir Pendaftaran</h1>
-<p class="sub">Isi data calon santri. Setelah dikirim, data tersimpan di dashboard panitia dan siap dikirim lewat WhatsApp.</p>
-</div></div>
+<!-- Header & Navbar -->
+<header>
+  <div class="wrap bar">
+    <a class="brand-link" href="index.html">
+      <div class="brand-icon">🕌</div>
+      <div class="brand-text">
+        <span class="brand-title">Darul Quran</span>
+        <span class="brand-sub">Penerimaan Santri Baru</span>
+      </div>
+    </a>
+
+    <nav id="desktopNav">
+      <a class="nav-link" href="index.html">Beranda</a>
+      <a class="nav-link" href="info.html">Info &amp; Galeri</a>
+      <a class="nav-link" href="dashboard.html">Dashboard</a>
+      <a class="nav-link active" href="daftar.html">Formulir Pendaftaran</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="th" type="button" aria-label="Ganti tema mode terang/gelap" title="Ganti Tema">☾</button>
+      <a class="btn gold small" href="index.html#jadwal">Lihat Biaya</a>
+      <button class="mobile-toggle" id="btnMobile" type="button" aria-label="Buka navigasi menu">☰</button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html"><span>🏠 Beranda</span> ➔</a>
+    <a href="info.html"><span>📖 Info Profil &amp; Galeri</span> ➔</a>
+    <a href="dashboard.html"><span>📊 Dashboard Panitia</span> ➔</a>
+    <a class="active" href="daftar.html"><span>📝 Formulir Pendaftaran</span> ➔</a>
+  </div>
+</header>
+
+<!-- Mini Hero Header -->
+<div class="mini">
+  <div class="wrap">
+    <div class="section-badge" style="background: rgba(212, 175, 55, 0.2); border-color: var(--gold); color: #fde047;">Tahun Ajaran 2026/2027</div>
+    <h1>Formulir Pendaftaran Santri Baru</h1>
+    <p class="sub">Silakan lengkapi formulir di bawah ini dengan data yang valid. Data akan tersimpan otomatis dan Anda dapat langsung mengunduh bukti pendaftaran atau mengirimkannya via WhatsApp ke panitia.</p>
+  </div>
+</div>
 
 <main>
-<section id="daftar"><div class="wrap">
-<h2>Syarat singkat</h2><p class="sub">Siapkan juga: fotokopi akta kelahiran, kartu keluarga, rapor terakhir, dan pas foto 3x4.</p>
-<form id="frm" novalidate>
-<div class="f"><label for="nama">Nama lengkap calon santri</label><input id="nama" required autocomplete="name"></div>
-<div class="f"><label for="jk">Jenis kelamin</label><select id="jk" required><option value="">Pilih</option><option>Laki-laki</option><option>Perempuan</option></select></div>
-<div class="f"><label for="ttl">Tempat dan tanggal lahir</label><input id="ttl" required placeholder="Contoh: Bukittinggi, 12 Mei 2012"></div>
-<div class="f"><label for="jenjang">Jenjang yang dipilih</label><select id="jenjang" required><option value="">Pilih</option><option>SMP / MTs</option><option>SMA / MA</option></select></div>
-<div class="f"><label for="asal">Asal sekolah</label><input id="asal" required></div>
-<div class="f"><label for="wali">Nama orang tua / wali</label><input id="wali" required></div>
-<div class="f"><label for="hp">No. WhatsApp wali</label><input id="hp" type="tel" inputmode="tel" required placeholder="08xxxxxxxxxx"></div>
-<div class="f"><label for="alamat">Alamat</label><input id="alamat" required autocomplete="street-address"></div>
-<div class="f"><label for="foto">Pas foto (opsional)</label><input id="foto" type="file" accept="image/*"><img id="prev" alt="Pratinjau pas foto"></div>
-<div class="f full check"><input id="setuju" type="checkbox" required style="width:auto"><label for="setuju" style="font-weight:500">Saya menyatakan data di atas benar dan bersedia mengikuti seleksi.</label></div>
-<div class="f full"><button class="btn" type="submit">Kirim Pendaftaran</button><small id="err" class="err" role="alert"></small></div>
-</form>
-<div id="hasil" class="card"><h3>Data pendaftaran siap dikirim</h3><p style="margin:6px 0 14px;color:var(--muted)">Data sudah tersimpan di dashboard panitia. Salin teks ini lalu kirim ke panitia, atau tekan tombol WhatsApp.</p><textarea id="teks" readonly></textarea><div class="row"><button class="btn" id="salin" type="button">Salin Data</button><a class="btn" id="wa" href="#" target="_blank" rel="noopener">Kirim via WhatsApp</a><a class="btn" style="background:transparent;color:var(--h)!important;border:2px solid var(--h)" href="dashboard.html">Lihat Dashboard</a></div></div>
-</div></section>
+  <section>
+    <div class="wrap form-container">
+      
+      <!-- Visual Steps Bar -->
+      <div class="form-steps">
+        <div class="step-node active">
+          <div class="step-circle">1</div>
+          <div class="step-label">Data Santri</div>
+        </div>
+        <div class="step-node active">
+          <div class="step-circle">2</div>
+          <div class="step-label">Data Orang Tua</div>
+        </div>
+        <div class="step-node active">
+          <div class="step-circle">3</div>
+          <div class="step-label">Berkas &amp; Pas Foto</div>
+        </div>
+      </div>
+
+      <!-- Registration Form -->
+      <form id="frm" novalidate>
+        
+        <!-- SECTION 1: DATA CALON SANTRI -->
+        <div class="form-section-title">
+          <span>👤 Data Pribadi Calon Santri</span>
+        </div>
+
+        <div class="f">
+          <label for="nama">Nama Lengkap Santri <span class="req">*</span></label>
+          <input id="nama" placeholder="Contoh: Muhammad Ilham Ramadhan" required autocomplete="name">
+        </div>
+
+        <div class="f">
+          <label for="jk">Jenis Kelamin <span class="req">*</span></label>
+          <select id="jk" required>
+            <option value="">-- Pilih Jenis Kelamin --</option>
+            <option value="Laki-laki">Laki-laki</option>
+            <option value="Perempuan">Perempuan</option>
+          </select>
+        </div>
+
+        <div class="f">
+          <label for="ttl">Tempat &amp; Tanggal Lahir <span class="req">*</span></label>
+          <input id="ttl" placeholder="Contoh: Bukittinggi, 12 Mei 2012" required>
+        </div>
+
+        <div class="f">
+          <label for="jenjang">Jenjang Pilihan <span class="req">*</span></label>
+          <select id="jenjang" required>
+            <option value="">-- Pilih Jenjang Pendidikan --</option>
+            <option value="SMP / MTs">SMP / MTs (Tingkat Menengah Pertama)</option>
+            <option value="SMA / MA">SMA / MA (Tingkat Menengah Atas)</option>
+          </select>
+        </div>
+
+        <div class="f full">
+          <label for="asal">Asal Sekolah Sebelumnya <span class="req">*</span></label>
+          <input id="asal" placeholder="Contoh: SD IT Al-Azhar / MI Nurul Falah" required>
+        </div>
+
+        <!-- SECTION 2: DATA ORANG TUA / WALI -->
+        <div class="form-section-title">
+          <span>👨‍👩‍👧 Data Orang Tua / Wali</span>
+        </div>
+
+        <div class="f">
+          <label for="wali">Nama Orang Tua / Wali <span class="req">*</span></label>
+          <input id="wali" placeholder="Contoh: H. Salim Hakim, S.E." required>
+        </div>
+
+        <div class="f">
+          <label for="hp">No. WhatsApp Aktif Wali <span class="req">*</span></label>
+          <input id="hp" type="tel" inputmode="tel" placeholder="08xxxxxxxxxx" required>
+        </div>
+
+        <div class="f full">
+          <label for="alamat">Alamat Domisili Lengkap <span class="req">*</span></label>
+          <textarea id="alamat" rows="2" placeholder="Nama Jalan, RT/RW, Kelurahan, Kecamatan, Kota/Kabupaten" required autocomplete="street-address"></textarea>
+        </div>
+
+        <!-- SECTION 3: FOTO & PERSETUJUAN -->
+        <div class="form-section-title">
+          <span>📸 Pas Foto &amp; Pernyataan</span>
+        </div>
+
+        <div class="f full">
+          <label for="foto">Unggah Pas Foto Santri (Opsional - Format JPG/PNG, Maks. 2MB)</label>
+          <div class="file-upload-box" onclick="document.getElementById('foto').click()">
+            <div style="font-size: 2rem;">📷</div>
+            <div style="font-weight: 600; color: var(--text-main);">Klik di sini untuk memilih foto</div>
+            <div style="font-size: 0.82rem; color: var(--text-muted)">Pas foto resmi 3x4 santri berlatar belakang polos</div>
+            <input id="foto" type="file" accept="image/*" style="display:none">
+            <img id="prev" alt="Pratinjau pas foto santri">
+          </div>
+        </div>
+
+        <div class="f full check">
+          <input id="setuju" type="checkbox" required>
+          <label for="setuju">
+            <strong>Saya menyatakan bahwa seluruh data yang diisikan adalah benar dan dapat dipertanggungjawabkan.</strong> Calon santri dan orang tua bersedia mematuhi seluruh tata tertib dan mengikuti tes seleksi penerimaan di Pesantren Modern Darul Quran.
+          </label>
+        </div>
+
+        <div class="f full">
+          <button class="btn gold" type="submit" style="width: 100%; padding: 16px; font-size: 1.1rem; justify-content: center;">
+            <span>🚀 Kirim Pendaftaran Santri Baru</span>
+          </button>
+          <div id="err" class="err" role="alert"></div>
+        </div>
+
+      </form>
+
+      <!-- Result Card -->
+      <div id="hasil">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; border-bottom: 2px solid var(--border); padding-bottom: 16px;">
+          <div>
+            <div class="section-badge" style="margin-bottom: 6px;">Status: Tersimpan</div>
+            <h3>Pendaftaran Berhasil Dikirim! 🎉</h3>
+            <p style="margin: 0; color: var(--text-muted)">Nomor Registrasi Anda: <strong id="regId" style="color:var(--gold-dark);font-size:1.15rem">-</strong></p>
+          </div>
+          <div id="resultThumb"></div>
+        </div>
+
+        <p style="color:var(--text-muted); margin-bottom: 16px;">
+          Data pendaftaran telah aman tersimpan di Dashboard Panitia. Anda dapat langsung mengirimkan konfirmasi pendaftaran ini ke panitia melalui WhatsApp atau mencetak bukti pendaftaran.
+        </p>
+
+        <label for="teks" style="margin-bottom: 6px;">Ringkasan Data Formulir:</label>
+        <textarea id="teks" readonly></textarea>
+
+        <div class="row" style="margin-top: 20px;">
+          <a class="btn gold" id="wa" href="#" target="_blank" rel="noopener">
+            <span>💬 Kirim via WhatsApp Panitia</span>
+          </a>
+          <button class="btn outline" id="cetak" type="button">
+            <span>🖨️ Cetak Bukti Pendaftaran</span>
+          </button>
+          <button class="btn" id="salin" type="button" style="background: var(--bg-surface-alt); color: var(--text-main)!important; border: 1.5px solid var(--border);">
+            <span>📋 Salin Ringkasan Teks</span>
+          </button>
+          <a class="btn small" href="dashboard.html" style="background: transparent; color: var(--primary)!important; text-decoration: underline;">
+            Lihat di Dashboard Panitia ➔
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
 </main>
 
-<footer><div class="wrap">
-<strong>Darul Quran</strong><br>Alamat: [alamat sekolah] · WhatsApp: [nomor panitia] · Email: [email]<br>
-<a href="index.html">Beranda</a> · <a href="info.html">Info &amp; Galeri</a> · <a href="daftar.html">Pendaftaran</a> · <a href="dashboard.html">Dashboard</a>
-</div></footer>
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="brand-link" style="margin-bottom: 16px;">
+          <div class="brand-icon">🕌</div>
+          <div class="brand-text">
+            <span class="brand-title" style="color:#ffffff">Darul Quran</span>
+            <span class="brand-sub">Pesantren Modern Terpadu</span>
+          </div>
+        </div>
+        <p>Lembaga pendidikan Islam yang berkomitmen melahirkan generasi yang hafidz Al-Qur'an, unggul dalam sains, dan berakhlak mulia untuk kemaslahatan umat.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigasi Halaman</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">🏠 Beranda Utama</a></li>
+          <li><a href="info.html">📖 Profil &amp; Fasilitas</a></li>
+          <li><a href="daftar.html">📝 Formulir Pendaftaran</a></li>
+          <li><a href="dashboard.html">📊 Dashboard Pendaftar</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Bantuan Pendaftaran</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#syarat">Syarat Dokumen</a></li>
+          <li><a href="index.html#alur">Alur Tahapan Seleksi</a></li>
+          <li><a href="index.html#jadwal">Jadwal &amp; Biaya Pendidikan</a></li>
+          <li><a href="index.html#faq">Pertanyaan Umum (FAQ)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kontak Panitia PSB</h4>
+        <p>
+          📍 Jl. Raya Pesantren No. 45, Kompleks Islamic Center<br>
+          📞 WhatsApp: <strong>+62 812-3456-7890</strong><br>
+          ✉️ Email: <strong>psb@darulquran.sch.id</strong><br>
+          🕒 Buka: Senin - Sabtu (08.00 - 16.00 WIB)
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 <strong>Pesantren Modern Darul Quran</strong>. Seluruh Hak Cipta Dilindungi.</div>
+      <div>Penerimaan Santri Baru Tahun Ajaran 2026/2027.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast Alert -->
+<div class="toast" id="toast">Data berhasil disalin!</div>
+
+<!-- Floating WhatsApp Button -->
+<a class="fab-wa" href="https://wa.me/6281234567890?text=Assalamu%27alaikum%20Panitia%20PSB%20Darul%20Quran,%20saya%20ingin%20konsultasi%20pendaftaran%20santri." target="_blank" rel="noopener" aria-label="Bantuan Pendaftaran via WhatsApp" title="Bantuan Pendaftaran via WhatsApp">
+  💬
+</a>
 
 <script>
-var WA_NUMBER = "";
-var K = "dq_pendaftar";
-var ids = ["nama","jk","ttl","jenjang","asal","wali","hp","alamat"];
-var lbl = {nama:"Nama",jk:"Jenis kelamin",ttl:"TTL",jenjang:"Jenjang",asal:"Asal sekolah",wali:"Orang tua/wali",hp:"WhatsApp wali",alamat:"Alamat"};
-function load(){try{return JSON.parse(localStorage.getItem(K))||[]}catch(e){return[]}}
-function save(list){localStorage.setItem(K,JSON.stringify(list))}
-function prosesFoto(file,cb){if(!file){cb("");return}var r=new FileReader();r.onload=function(){var img=new Image();img.onload=function(){try{var s=Math.min(1,320/Math.max(img.width,img.height));var c=document.createElement("canvas");c.width=Math.max(1,Math.round(img.width*s));c.height=Math.max(1,Math.round(img.height*s));c.getContext("2d").drawImage(img,0,0,c.width,c.height);cb(c.toDataURL("image/jpeg",0.82))}catch(e){cb("")}};img.onerror=function(){cb("")};img.src=r.result};r.onerror=function(){cb("")};r.readAsDataURL(file)}
-document.getElementById("foto").addEventListener("change",function(e){var f=e.target.files[0];var pv=document.getElementById("prev");if(!f){pv.style.display="none";return}prosesFoto(f,function(d){if(d){pv.src=d;pv.style.display="block"}})});
-document.getElementById("frm").addEventListener("submit",function(e){
-  e.preventDefault();
-  var err=document.getElementById("err"),ok=true,lines=["PENDAFTARAN SANTRI BARU - DARUL QURAN"],data={};
-  ids.forEach(function(id){var el=document.getElementById(id),v=el.value.trim();data[id]=v;if(!v){ok=false;el.style.borderColor="#b3261e"}else{el.style.borderColor="";lines.push(lbl[id]+": "+v)}});
-  if(!document.getElementById("setuju").checked){ok=false;err.textContent="Mohon centang pernyataan kesediaan.";return}
-  if(!ok){err.textContent="Mohon lengkapi semua kolom yang kosong.";return}
-  err.textContent="";
-  prosesFoto(document.getElementById("foto").files[0],function(foto){
-    data.foto=foto||"";data.tgl=new Date().toISOString();data.id="s"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
-    var list=load();list.unshift(data);
-    try{save(list)}catch(ex){data.foto="";save(list)}
-    lines.push("Tanggal daftar: "+new Date(data.tgl).toLocaleDateString("id-ID"));
-    var t=lines.join("\n");
-    document.getElementById("teks").value=t;
-    var wa=document.getElementById("wa");
-    if(WA_NUMBER){wa.href="https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(t)}else{wa.style.display="none"}
-    var h=document.getElementById("hasil");h.style.display="block";h.scrollIntoView({behavior:"smooth",block:"center"});
+// Nomor WhatsApp Resmi Panitia PSB (Ganti sesuai kebutuhan)
+var WA_NUMBER = "6281234567890";
+var STORAGE_KEY = "dq_pendaftar";
+var ids = ["nama", "jk", "ttl", "jenjang", "asal", "wali", "hp", "alamat"];
+var lbl = {
+  nama: "Nama Calon Santri",
+  jk: "Jenis Kelamin",
+  ttl: "Tempat/Tgl Lahir",
+  jenjang: "Jenjang Pilihan",
+  asal: "Asal Sekolah",
+  wali: "Orang Tua/Wali",
+  hp: "WhatsApp Wali",
+  alamat: "Alamat Lengkap"
+};
+
+function loadList() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveList(list) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+}
+
+function showToast(msg) {
+  var t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(function() {
+    t.classList.remove("show");
+  }, 2400);
+}
+
+// Compress Photo in Canvas to keep localStorage light & fast
+function prosesFoto(file, cb) {
+  if (!file) {
+    cb("");
+    return;
+  }
+  var r = new FileReader();
+  r.onload = function() {
+    var img = new Image();
+    img.onload = function() {
+      try {
+        var maxDim = 360;
+        var s = Math.min(1, maxDim / Math.max(img.width, img.height));
+        var c = document.createElement("canvas");
+        c.width = Math.max(1, Math.round(img.width * s));
+        c.height = Math.max(1, Math.round(img.height * s));
+        var ctx = c.getContext("2d");
+        ctx.drawImage(img, 0, 0, c.width, c.height);
+        cb(c.toDataURL("image/jpeg", 0.85));
+      } catch (e) {
+        cb("");
+      }
+    };
+    img.onerror = function() { cb(""); };
+    img.src = r.result;
+  };
+  r.onerror = function() { cb(""); };
+  r.readAsDataURL(file);
+}
+
+// Photo Input Preview
+document.getElementById("foto").addEventListener("change", function(e) {
+  var f = e.target.files[0];
+  var pv = document.getElementById("prev");
+  if (!f) {
+    pv.style.display = "none";
+    return;
+  }
+  prosesFoto(f, function(dataUri) {
+    if (dataUri) {
+      pv.src = dataUri;
+      pv.style.display = "block";
+    }
   });
 });
-document.getElementById("salin").addEventListener("click",function(){
-  var ta=document.getElementById("teks");ta.select();
-  try{navigator.clipboard.writeText(ta.value)}catch(e){document.execCommand("copy")}
-  this.textContent="Tersalin!";
+
+// Form Submission Handler
+document.getElementById("frm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var err = document.getElementById("err");
+  var ok = true;
+  var data = {};
+  var lines = [
+    "━━━━━━━━━━━━━━━━━━━━━━━━━",
+    "🕌 PENDAFTARAN SANTRI BARU",
+    "PESANTREN DARUL QURAN 2026/2027",
+    "━━━━━━━━━━━━━━━━━━━━━━━━━"
+  ];
+
+  // Validate fields
+  ids.forEach(function(id) {
+    var el = document.getElementById(id);
+    var v = el.value.trim();
+    data[id] = v;
+    if (!v) {
+      ok = false;
+      el.style.borderColor = "#dc2626";
+    } else {
+      el.style.borderColor = "";
+      lines.push("• " + lbl[id] + ": " + v);
+    }
+  });
+
+  if (!document.getElementById("setuju").checked) {
+    ok = false;
+    err.textContent = "⚠️ Mohon centang tanda persetujuan pernyataan di atas sebelum mengirim formulir.";
+    return;
+  }
+
+  if (!ok) {
+    err.textContent = "⚠️ Mohon lengkapi semua kolom bertanda bintang (*) yang masih kosong.";
+    return;
+  }
+
+  err.textContent = "";
+
+  // Process photo and save
+  var fileInput = document.getElementById("foto");
+  prosesFoto(fileInput.files[0], function(fotoUri) {
+    data.foto = fotoUri || "";
+    data.tgl = new Date().toISOString();
+    
+    // Generate clean registration code (e.g. DQ-2026-7841)
+    var randomSuffix = Math.floor(1000 + Math.random() * 9000);
+    data.id = "DQ-2026-" + randomSuffix;
+
+    var list = loadList();
+    list.unshift(data);
+    try {
+      saveList(list);
+    } catch (ex) {
+      // If quota exceeded, omit photo
+      data.foto = "";
+      saveList(list);
+    }
+
+    lines.push("━━━━━━━━━━━━━━━━━━━━━━━━━");
+    lines.push("No. Registrasi: " + data.id);
+    lines.push("Waktu Daftar: " + new Date().toLocaleString("id-ID"));
+    lines.push("━━━━━━━━━━━━━━━━━━━━━━━━━");
+    lines.push("Mohon informasi petunjuk pelaksanaan tes seleksi selanjutnya. Terima kasih.");
+
+    var formattedText = lines.join("\n");
+    document.getElementById("teks").value = formattedText;
+    document.getElementById("regId").textContent = data.id;
+
+    // Show thumbnail in result card
+    var resultThumb = document.getElementById("resultThumb");
+    if (data.foto) {
+      resultThumb.innerHTML = '<img src="' + data.foto + '" class="thumb" style="width:64px;height:64px" alt="Foto Santri">';
+    } else {
+      resultThumb.innerHTML = '<span class="avatar" style="width:64px;height:64px;font-size:1.8rem">' + (data.nama.charAt(0) || 'D') + '</span>';
+    }
+
+    // WhatsApp Action Link
+    var waBtn = document.getElementById("wa");
+    if (WA_NUMBER) {
+      waBtn.href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(formattedText);
+      waBtn.style.display = "inline-flex";
+    } else {
+      waBtn.style.display = "none";
+    }
+
+    var h = document.getElementById("hasil");
+    h.style.display = "block";
+    h.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    showToast("🎉 Pendaftaran berhasil! Silakan kirim WhatsApp atau cetak bukti.");
+  });
 });
-(function(){var t=localStorage.getItem("dq_theme");if(t){document.documentElement.setAttribute("data-theme",t)}var b=document.getElementById("th");if(b){var u=function(){var c=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",c);localStorage.setItem("dq_theme",c);b.textContent=c==="dark"?"☀":"☾"};b.textContent=document.documentElement.getAttribute("data-theme")==="dark"?"☀":"☾";b.addEventListener("click",u)}})();
+
+// Copy Text Action
+document.getElementById("salin").addEventListener("click", function() {
+  var ta = document.getElementById("teks");
+  ta.select();
+  try {
+    navigator.clipboard.writeText(ta.value);
+  } catch (e) {
+    document.execCommand("copy");
+  }
+  showToast("📋 Format teks berhasil disalin ke papan klip!");
+});
+
+// Print Proof of Registration
+document.getElementById("cetak").addEventListener("click", function() {
+  window.print();
+});
+
+// Theme Management
+(function(){
+  var stored = localStorage.getItem("dq_theme");
+  if(stored){
+    document.documentElement.setAttribute("data-theme", stored);
+  }
+  var btn = document.getElementById("th");
+  function updateIcon(){
+    var isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    if(btn) btn.textContent = isDark ? "☀" : "☾";
+  }
+  updateIcon();
+  if(btn){
+    btn.addEventListener("click", function(){
+      var isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      var next = isDark ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("dq_theme", next);
+      updateIcon();
+    });
+  }
+})();
+
+// Mobile Drawer Toggle
+var btnMobile = document.getElementById("btnMobile");
+var mobileDrawer = document.getElementById("mobileDrawer");
+if(btnMobile && mobileDrawer){
+  btnMobile.addEventListener("click", function(){
+    mobileDrawer.classList.toggle("open");
+    btnMobile.textContent = mobileDrawer.classList.contains("open") ? "✕" : "☰";
+  });
+  mobileDrawer.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){
+      mobileDrawer.classList.remove("open");
+      btnMobile.textContent = "☰";
+    });
+  });
+}
 </script>
+
 </body>
 </html>
